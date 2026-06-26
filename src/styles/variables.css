@@ -1,0 +1,26 @@
+
+
+:root {
+
+  /* Brand Colours */
+  --primary: #8C63D6;
+  --primary-light: #EFE8FF;
+
+  --yellow: #FFD93D;
+  --blue: #6DB4E8;
+  --coral: #FF6B6B;
+
+  --background: #F7F4FF;
+  --card: #FAFAFA;
+
+  --text: #333333;
+  --text-light: #666666;
+
+  /* Shadows */
+  --shadow: 0 8px 20px rgba(0,0,0,.08);
+
+  /* Border Radius */
+  --radius: 18px;
+
+  --card-light: #F5F0FF;
+}
