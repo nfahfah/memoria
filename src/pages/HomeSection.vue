@@ -1,25 +1,48 @@
 <template>
-  <section class="home">
 
-    <div class="scrapbook-card">
+<section class="home">
 
-      <p class="small-title">
-        Welcome to
-      </p>
+    <img
+        class="track"
+        src="../assets/images/train-track.png"
+        alt="Train Track"
+    />
 
-      <h1>Memoria</h1>
+    <img
+        class="memoria-title"
+        src="../assets/images/memoria-title.png"
+        alt="Memoria"
+    />
 
-      <p class="tagline">
-        Every memory begins somewhere.
-      </p>
+    <div
+        class="scroll-indicator"
+        @click="scrollToWelcome"
+    >
+
+        <p class="scroll-text">
+            Your Journey Starts Here
+        </p>
+
+        <div class="scroll-arrow">
+            ﹀
+        </div>
 
     </div>
 
-  </section>
+</section>
+
+<WelcomeSection />
+
 </template>
 
 <script setup>
+import WelcomeSection from "./WelcomeSection.vue";
 
+function scrollToWelcome() {
+    document.getElementById("welcome")?.scrollIntoView({
+        behavior: "smooth"
+    });
+}
 </script>
 
 <style scoped>
@@ -28,27 +51,74 @@
 
     min-height:100vh;
 
-    padding-top:120px;
+    background:#402b6d;
+
+    position:relative;
+
+    overflow:hidden;
 
     display:flex;
 
     justify-content:center;
 
+    align-items:flex-start;
+
+    padding-top:120px;
+
 }
 
-.scrapbook-card{
 
-    width:700px;
 
-    background:white;
+.home::before{
 
-    border-radius:28px;
+    content:"";
 
-    padding:60px;
+    position:absolute;
 
-    box-shadow:var(--shadow);
+    inset:0;
 
-    text-align:center;
+    background:
+
+    radial-gradient(
+        circle at top left,
+        rgba(255,223,120,.14),
+        transparent 40%
+    ),
+
+    radial-gradient(
+        circle at bottom right,
+        rgba(255,223,120,.20),
+        transparent 42%
+    );
+
+    pointer-events:none;
+
+
+}
+
+.track{
+
+    position:absolute;
+
+    width:110%;
+
+    left:-5%;
+
+    top:0;
+
+    opacity:.18;
+
+    pointer-events:none;
+
+}
+
+.memoria-title{
+
+    width:min(900px, 80vw);
+
+    position:relative;
+
+    z-index:2;
 
 }
 
@@ -79,6 +149,73 @@ h1{
     font-size:1.2rem;
 
     color:#666;
+
+}
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:40px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    z-index:2;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.scroll-indicator:hover{
+
+    transform:translateX(-50%) translateY(-5px);
+
+}
+
+.scroll-text{
+
+    color:white;
+
+    letter-spacing:2px;
+
+    font-size:.9rem;
+
+    opacity:.75;
+
+    margin-bottom:8px;
+
+}
+
+.scroll-arrow{
+
+    color:white;
+
+    font-size:2rem;
+
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(8px);
+    }
 
 }
 

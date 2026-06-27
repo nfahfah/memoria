@@ -1,84 +1,238 @@
 <template>
-  <section class="home">
 
-    <div class="scrapbook-card">
+<section
+    id="precamp"
+    class="precamp-page"
+  
+>
 
-      <p class="small-title">
-        Welcome to
-      </p>
+    <h1 class="page-title">
+        Pre-Camp Booklet
+    </h1>
 
-      <h1>Memoria</h1>
+    <p class="page-subtitle">
+        Everything you need before your journey begins.
+    </p>
 
-      <p class="tagline">
-        Every memory begins somewhere.
-      </p>
+    <div class="booklet-grid">
 
-    </div>
+  <div
+    class="book-card overview-card"
+    @click="router.push('/overview')"
+>
+    <div class="card-icon">📍</div>
 
-  </section>
+    <h2>Overview</h2>
+
+    <p>
+      Start your journey here and learn what Memoria is all about.
+    </p>
+
+    <button class="open-btn">
+      Open →
+    </button>
+  </div>
+
+  <div
+    class="book-card packing-card"
+    @click="router.push('/packing-list')"
+  >
+    <div class="card-icon">🎒</div>
+
+    <h2>Packing List</h2>
+
+    <p>
+      Everything you'll need to prepare before camp begins.
+    </p>
+
+    <button class="open-btn">
+      Open →
+    </button>
+  </div>
+
+  <div
+    class="book-card getting-card"
+    @click="router.push('/getting-here')"
+  >
+    <div class="card-icon">🚆</div>
+
+    <h2>Getting Here</h2>
+
+    <p>
+      Find your way to NUS with maps and transport guides.
+    </p>
+
+    <button class="open-btn">
+      Open →
+    </button>
+  </div>
+
+</div>
+</section>
+
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 </script>
 
 <style scoped>
 
-.home{
+.precamp-page{
 
     min-height:100vh;
 
-    padding-top:120px;
+    background:#F5E05D;
 
-    display:flex;
+    padding:110px 8%;
 
-    justify-content:center;
+    box-sizing:border-box;
 
 }
 
-.scrapbook-card{
+.page-title{
 
-    width:700px;
+    font-family:"Luckiest Guy";
 
-    background:white;
+    font-size:4rem;
 
-    border-radius:28px;
-
-    padding:60px;
-
-    box-shadow:var(--shadow);
+    color:#402B6D;
 
     text-align:center;
 
-}
-
-.small-title{
-
-    color:#777;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
+    margin-bottom:70px;
 
 }
 
-h1{
+.page-subtitle{
 
-    font-family:"Luckiest Guy", cursive;
+    text-align:center;
 
-    font-size:5rem;
+    color:#5E4D88;
 
-    margin:20px 0;
+    font-size:1.15rem;
 
-    color:var(--primary);
+    margin-top:-30px;
+
+    margin-bottom:60px;
 
 }
 
-.tagline{
+.booklet-grid{
 
-    font-size:1.2rem;
+    display:grid;
 
-    color:#666;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.book-card{
+
+    background:#FFF9E8;
+
+    border-radius:26px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.overview-card{
+
+    background:#F3EEFF;
+
+}
+
+.packing-card{
+
+    background:#EEF7FF;
+
+}
+
+.getting-card{
+
+    background:#FFF1F6;
+
+}
+
+.book-card{
+
+    cursor:pointer;
+
+}
+
+.book-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+.card-icon{
+
+    font-size:3.5rem;
+
+    margin-bottom:20px;
+
+}
+
+.book-card h2{
+
+    color:#402B6D;
+
+    margin-bottom:15px;
+
+}
+
+.book-card p{
+
+    color:#555;
+
+    line-height:1.7;
+
+    min-height:90px;
+
+}
+
+.open-btn{
+
+    margin-top:20px;
+
+    background:#402B6D;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 26px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.open-btn:hover{
+
+    background:#5A3E98;
 
 }
 
