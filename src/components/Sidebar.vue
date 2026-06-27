@@ -91,7 +91,7 @@ const menu = [
         color: "blue"
         },
         {
-        title: "Vouchers",
+        title: "Our Sponsors",
         color: "blue"
         }
     ]
@@ -145,10 +145,12 @@ function toggleSection(title) {
   top: 80px;
   left: 0;
 
+  z-index: 1001;
+
   width: 300px;
   height: calc(100vh - 80px);
 
-  background:var(--card);
+  background: var(--card);
 
   transform: translateX(-100%);
   transition: transform .35s ease;
@@ -161,7 +163,7 @@ function toggleSection(title) {
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
 
-  box-shadow:var(--shadow);
+  box-shadow: var(--shadow);
 }
 
 .sidebar.open {
