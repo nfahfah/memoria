@@ -5,6 +5,16 @@
     class="precamp-page"
   
 >
+  <div class="stars">
+    <span class="star s1">✦</span>
+    <span class="star s2">✦</span>
+    <span class="star s3">✦</span>
+    <span class="star s4">✦</span>
+    <span class="star s5">✦</span>
+    <span class="star s6">✦</span>
+    <span class="star s7">✦</span>
+    <span class="star s8">✦</span>
+  </div>
 
     <h1 class="page-title">
         Pre-Camp Booklet
@@ -18,7 +28,7 @@
 
   <div
     class="book-card overview-card"
-    @click="router.push('/overview')"
+    @click="router.push('/precamp#overview')"
 >
     <div class="card-icon">📍</div>
 
@@ -35,7 +45,7 @@
 
   <div
     class="book-card packing-card"
-    @click="router.push('/packing-list')"
+    @click="router.push('/precamp#packing-list')"
   >
     <div class="card-icon">🎒</div>
 
@@ -52,7 +62,7 @@
 
   <div
     class="book-card getting-card"
-    @click="router.push('/getting-here')"
+    @click="router.push('/precamp#getting-here')"
   >
     <div class="card-icon">🚆</div>
 
@@ -70,12 +80,25 @@
 </div>
 </section>
 
+<OverviewSection />
+
+<PackingListSection />
+
+<GettingHereSection />
+
 </template>
 
 <script setup>
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+
+
+import OverviewSection from "../pc-section/OverviewSection.vue";
+import PackingListSection from "../pc-section/PackingListSection.vue";
+import GettingHereSection from "../pc-section/GettingHereSection.vue";
+
+
 </script>
 
 <style scoped>
@@ -155,19 +178,24 @@ const router = useRouter();
 .overview-card{
 
     background:#F3EEFF;
+    position:relative;
+    z-index:2;
 
 }
 
 .packing-card{
 
     background:#EEF7FF;
+    position:relative;
+    z-index:2;
 
 }
 
 .getting-card{
 
     background:#FFF1F6;
-
+    position:relative;
+    z-index:2;
 }
 
 .book-card{
@@ -234,6 +262,70 @@ const router = useRouter();
 
     background:#5A3E98;
 
+}
+
+.stars{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.star{
+
+    position:absolute;
+
+    color:#ff66c4;
+
+    opacity:.12;
+
+    font-size:1.8rem;
+
+}
+
+.s1{
+    top:8%;
+    left:10%;
+}
+
+.s2{
+    top:25%;
+    right:12%;
+}
+
+.s3{
+    top:45%;
+    left:6%;
+}
+
+.s4{
+    top:60%;
+    right:18%;
+}
+
+.s5{
+    top:78%;
+    left:14%;
+}
+
+.s6{
+    top:110%;
+    right:10%;
+}
+
+.s7{
+    top:165%;
+    left:8%;
+}
+
+.s8{
+    top:220%;
+    right:15%;
 }
 
 </style>

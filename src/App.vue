@@ -14,7 +14,15 @@ function toggleSidebar() {
 <template>
   <TopBar @toggle-sidebar="toggleSidebar" />
 
-  <Sidebar :is-open="isSidebarOpen" />
+  <Sidebar
+    :is-open="isSidebarOpen"
+    @close-sidebar="isSidebarOpen = false"
+  />
 
-  <router-view />
+  <main
+    class="content"
+    @click="isSidebarOpen = false"
+  >
+    <router-view />
+  </main>
 </template>

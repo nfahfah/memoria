@@ -2,6 +2,7 @@
   <aside
     class="sidebar"
     :class="{ open: isOpen }"
+    @click.stop
   >
 
     <nav>
@@ -12,7 +13,7 @@
       >
         <div
           class="menu-title"
-          @click="item.children && toggleSection(item.title)"
+          @click="handleMenuClick(item)"
         >
           <span>{{ item.title }}</span>
 
@@ -28,7 +29,7 @@
           <li
             v-for="child in item.children"
             :key="child.title"
-            @click="activePage = child.title"
+            @click="goToPage(child)"
           >
             <span
                 class="orb"
@@ -49,79 +50,102 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 defineProps({
   isOpen: Boolean
 });
 
+const emit = defineEmits(["close-sidebar"]);
+
 const menu = [
   {
-    title: "🏠 Home"
+    title: "🏠 Home",
+    route:"/"
   },
   {
     title: "📖 Pre-Camp Booklet",
+    route: "/precamp",
     children: [
         {
         title: "Overview",
-        color: "purple"
+        color: "purple",
+        route: "/precamp#overview"
         },
         {
         title: "Packing List",
-        color: "purple"
+        color: "purple",
+        route: "/precamp#packing-list"
         },
         {
         title: "Getting Here",
-        color: "purple"
+        color: "purple",
+        route: "/precamp#getting-here"
         }
     ]
   },
   {
     title: "🚂 Camp Guide",
+    route: "/camp-guide",
     children: [
         {
         title: "Day 1",
-        color: "blue"
+        color: "blue",
+        route: "/camp-guide#day1"
         },
         {
         title: "Day 2",
-        color: "blue"
+        color: "blue",
+        route: "/camp-guide#day2"
         },
         {
         title: "Day 3",
-        color: "blue"
+        color: "blue",
+        route: "/camp-guide#day3"
         },
         {
         title: "Our Sponsors",
-        color: "blue"
+        color: "blue",
+        route: "/camp-guide#our-sponsors"
         }
     ]
   },
   {
     title: "🎓 NUS Guide",
+    route: "/nus-guide",
     children: [
         {
         title: "Academics",
-        color: "coral"
+        color: "coral",
+        route: "/nus-guide#academics"
         },
         {
         title: "NUSMS Adhocs",
-        color: "coral"
+        color: "coral",
+        route: "/nus-guide#nusms-adhocs"
         },
         {
         title: "PBMUKS Adhocs",
-        color: "coral"
+        color: "coral",
+        route: "/nus-guide#pbmuks-adhocs"
         },
         {
         title: "Muda Mudi CCAs",
-        color: "coral"
+        color: "coral",
+        route: "/nus-guide#muda-mudi-ccas"
         },
         {
         title: "Eats",
-        color: "coral"
+        color: "coral",
+        route: "/nus-guide#eats"
         },
         {
         title: "Musollahs & Masjids",
-        color: "coral"
+        color: "coral",
+        route: "/nus-guide#musollahs-masjids"
+        },
+        {
         }
     ]
   }
@@ -137,6 +161,39 @@ function toggleSection(title) {
     openSection.value = title;
   }
 }
+
+
+function handleMenuClick(item) {
+
+  if (item.children) {
+    toggleSection(item.title);
+  }
+
+  if (item.route) {
+    router.push(item.route);
+  }
+
+  // only close if it's Home
+  if (!item.children) {
+    emit("close-sidebar");
+  }
+
+}
+
+function goToPage(child) {
+
+  activePage.value = child.title;
+
+  const [path, hash] = child.route.split("#");
+
+  router.push({
+    path,
+    hash: hash ? "#" + hash : ""
+  });
+
+  emit("close-sidebar");
+}
+
 </script>
 
 <style scoped>

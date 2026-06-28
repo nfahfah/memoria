@@ -1,84 +1,262 @@
 <template>
-  <section class="home">
+  <section class="camp-page">
 
-    <div class="scrapbook-card">
+    <h1 class="page-title">
+      Camp Guide
+    </h1>
 
-      <p class="small-title">
-        Welcome to
-      </p>
+    <p class="page-subtitle">
+      Follow the journey through Memoria.
+    </p>
 
-      <h1>Memoria</h1>
+    <div class="timeline">
 
-      <p class="tagline">
-        Every memory begins somewhere.
-      </p>
+      <div
+        class="timeline-item"
+        @click="router.push('/camp-guide#day1')"
+      >
+        <div class="dot blue"></div>
+
+        <div class="content">
+          <h2>Day 1</h2>
+          <p>First stop — introductions, games and making memories.</p>
+        </div>
+      </div>
+
+      <div
+        class="timeline-item"
+        @click="router.push('/camp-guide#day2')"
+      >
+        <div class="dot green"></div>
+
+        <div class="content">
+          <h2>Day 2</h2>
+          <p>The adventure continues with activities and bonding.</p>
+        </div>
+      </div>
+
+      <div
+        class="timeline-item"
+        @click="router.push('/camp-guide#day3')"
+      >
+        <div class="dot orange"></div>
+
+        <div class="content">
+          <h2>Day 3</h2>
+          <p>The final stop before your NUS journey officially begins.</p>
+        </div>
+      </div>
+
+      <div
+        class="timeline-item"
+        @click="router.push('/camp-guide#our-sponsors')"
+      >
+        <div class="dot purple"></div>
+
+        <div class="content">
+          <h2>Our Sponsors</h2>
+          <p>A big thank you to everyone who made Memoria possible.</p>
+        </div>
+      </div>
 
     </div>
 
   </section>
+
+  <Day1Section />
+
+<Day2Section />
+
+<Day3Section />
+
+<OurSponsorsSection />
+
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
 
+import Day1Section from "../c-section/Day1Section.vue";
+import Day2Section from "../c-section/Day2Section.vue";
+import Day3Section from "../c-section/Day3Section.vue";
+import OurSponsorsSection from "../c-section/OurSponsorsSection.vue";
+
+const router = useRouter();
 </script>
 
 <style scoped>
 
-.home{
+.camp-page{
 
     min-height:100vh;
 
-    padding-top:120px;
+    background:#DCEEFF;
 
-    display:flex;
+    padding:110px 8%;
 
-    justify-content:center;
+    box-sizing:border-box;
 
 }
 
-.scrapbook-card{
+.page-title{
 
-    width:700px;
+    font-family:"Luckiest Guy";
 
-    background:white;
+    font-size:4rem;
 
-    border-radius:28px;
-
-    padding:60px;
-
-    box-shadow:var(--shadow);
+    color:#402B6D;
 
     text-align:center;
 
-}
-
-.small-title{
-
-    color:#777;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
+    margin-bottom:15px;
 
 }
 
-h1{
+.page-subtitle{
 
-    font-family:"Luckiest Guy", cursive;
+    text-align:center;
 
-    font-size:5rem;
+    color:#5E4D88;
 
-    margin:20px 0;
+    font-size:1.1rem;
 
-    color:var(--primary);
+    margin-bottom:70px;
 
 }
 
-.tagline{
+.timeline{
 
-    font-size:1.2rem;
+    position:relative;
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    top:0;
+
+    bottom:0;
+
+    width:4px;
+
+    background:#B8D9F4;
+
+    border-radius:999px;
+
+}
+
+.timeline-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+    margin-bottom:55px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    position:relative;
+
+}
+
+.timeline-item:hover{
+
+    transform:translateX(10px);
+
+}
+
+.dot{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+    position:relative;
+
+    z-index:2;
+
+    border:5px solid white;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+
+}
+
+.blue{
+
+    background:#6DB4E8;
+
+}
+
+.green{
+
+    background:#7BC96F;
+
+}
+
+.orange{
+
+    background:#FFA552;
+
+}
+
+.purple{
+
+    background:#9B59B6;
+
+}
+
+.content{
+
+    background:white;
+
+    padding:22px 26px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    flex:1;
+
+    transition:.25s;
+
+}
+
+.timeline-item:hover .content{
+
+    box-shadow:0 14px 30px rgba(0,0,0,.12);
+
+}
+
+.content h2{
+
+    color:#402B6D;
+
+    margin-bottom:10px;
+
+}
+
+.content p{
 
     color:#666;
+
+    line-height:1.6;
 
 }
 
