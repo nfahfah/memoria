@@ -16,9 +16,29 @@
     </div>
 
   </section>
+
+  <AcademicsSection />
+
+<NUSMSSection />
+
+<PBMUKSSection />
+
+<CCAsSection />
+
+<EatsSection />
+
+<MusollahsSection />
+
 </template>
 
 <script setup>
+
+import AcademicsSection from "../nus-section/AcademicsSection.vue";
+import NUSMSSection from "../nus-section/NUSMSSection.vue";
+import PBMUKSSection from "../nus-section/PBMUKSSection.vue";
+import CCAsSection from "../nus-section/CCAsSection.vue";
+import EatsSection from "../nus-section/EatsSection.vue";
+import MusollahsSection from "../nus-section/MusollahsSection.vue";
 
 </script>
 
