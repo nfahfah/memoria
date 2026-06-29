@@ -180,5 +180,18 @@
         color:#444;
     
     }
+    @media (max-width: 480px) {
+  .overview-page {
+    padding: 90px 6%;
+  }
+
+  .overview-card {
+    padding: 32px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
     
     </style>

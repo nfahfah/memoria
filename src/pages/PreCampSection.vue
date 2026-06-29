@@ -76,6 +76,7 @@
     
     const router = useRouter();
     import pcHeader from "../assets/images/pc.png";
+    import pinkBackground from "../assets/images/pink-background.png"
     
     
     import OverviewSection from "../pc-section/OverviewSection.vue";
@@ -91,7 +92,13 @@
     
         min-height:100vh;
     
-        background:#F5E05D;
+        background-image: url("../assets/images/pink-background.png");
+
+        background-size:cover;
+
+        background-position:center;
+
+        background-repeat:no-repeat;
     
         padding:110px 8%;
     

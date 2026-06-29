@@ -49,6 +49,7 @@
 <script setup>
 import { useRouter } from "vue-router";
 import pdPhoto from "../assets/images/pd-photo.jpg";
+import pinkBackground from "../assets/images/pink-background.png"
 
 const router = useRouter();
 
@@ -63,7 +64,13 @@ function goToPreCamp() {
 
     min-height:100vh;
 
-    background:#F5E05D;
+    background-image: url("../assets/images/pink-background.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
 
     display:flex;
 

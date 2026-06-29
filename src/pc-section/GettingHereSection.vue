@@ -22,7 +22,8 @@
             </h2>
     
             <p class="intro">
-                Please arrive at the camp venue on time and safely. You can find the reporting time and venues for the 3 days below!
+                Please arrive at the camp venue on time and safely.<br>
+                You can find the reporting time and venues for the 3 days below!
             </p>
     
         <div class="getting-container">
@@ -48,9 +49,9 @@
     
                     <button
                         class="copy-btn"
-                        @click="copyAddress('11 Kent Ridge Dr, #01-02, Singapore 119244', 'day1')"
+                        @click="copyAddress('119244', 'day1')"
                     >
-                        {{ copiedKey === 'day1' ? "Copied!" : "Copy" }}
+                        {{ copiedKey === 'day1' ? "Copied!" : "Copy Postal Code" }}
                     </button>
     
                 </div>
@@ -104,9 +105,9 @@
     
                     <button
                         class="copy-btn"
-                        @click="copyAddress('2 Engineering Drive 4, Singapore 117584', 'day2')"
+                        @click="copyAddress('117584', 'day2')"
                     >
-                        {{ copiedKey === 'day2' ? "Copied!" : "Copy" }}
+                        {{ copiedKey === 'day2' ? "Copied!" : "Copy Postal Code" }}
                     </button>
     
                 </div>
@@ -151,11 +152,11 @@
             <div class="transport">
                 <h4>🏠 Overnight</h4>
                 <p>
-                    After check-out, do head to your respective breakfast location with your OGLs.
+                    After check-out, proceed to your respective breakfast location with your OGLs.
                 </p><br><br>
                 <h4>🚇 Non-Overnight</h4>
                 <p>
-                    Do head to your respective breakfast location at the reporting time specified by your OGLs.
+                    For those coming from home, do make your way to the respective breakfast location at the reporting time specified by your OGLs.
                 </p>
             </div>
         </div>
@@ -220,7 +221,7 @@
         
             box-sizing:border-box;
         
-            background: #FFF4E8;
+            background: #fceef9;
         
             position:relative;
         
@@ -250,7 +251,7 @@
         
             position:absolute;
         
-            color:#F0954D;
+            color:#fb91e4;
         
             opacity:.3;
         
@@ -328,7 +329,7 @@
         
             text-align:center;
         
-            margin-bottom:50px;
+            margin-bottom:10px;
         
         }
     
@@ -394,7 +395,7 @@
     
         .reporting-venue{
     
-            background:#FFF4E8;
+            background:#fceef9;
     
             border-radius:16px;
     
@@ -559,5 +560,22 @@
           }
 
         }
+        @media (max-width: 480px) {
+  .overview-page {
+    padding: 90px 6%;
+  }
+
+  .overview-card {
+    padding: 32px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .intro {
+    font-size: 0.50rem;
+  }
+}
         
       </style>

@@ -17,10 +17,11 @@
       <span class="star s9">⋆</span>
     </div>
     
-        <div class="overview-card">
-            <h2 class="section-title">
+    <h2 class="section-title">
              Overview
             </h2>
+
+        <div class="overview-card">
     
             <p>
     
@@ -64,9 +65,13 @@
     
     .section-title{
     
+        position:relative;
+    
+        z-index:1;
+    
         font-family:"Luckiest Guy";
     
-        font-size:60px;
+        font-size:3rem;
     
         color:#402B6D;
     
@@ -92,13 +97,6 @@
     
     }
     
-    .card-title{
-        font-family:"Luckiest Guy";
-        color:#402B6D;
-        font-size: 40px;
-        margin-bottom:25px;
-        text-align:center;
-    }
     
     .overview-card p{
     
@@ -156,5 +154,19 @@
         position:relative;
         z-index:1;
     }
+
+    @media (max-width: 480px) {
+  .overview-page {
+    padding: 90px 6%;
+  }
+
+  .overview-card {
+    padding: 32px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
     
     </style>

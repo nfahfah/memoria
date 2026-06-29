@@ -1,4 +1,7 @@
 <template>
+  <div
+    class="contacts-page"><br>
+
     <div class="contacts-card">
     
     <h3 class="card-title">
@@ -61,12 +64,34 @@
         <p>📧 whistleblow@nus.edu.sg</p>
     </div>
   </div>
+  </div>
 </template>
 
+<script>
+    import pinkBackground from "../assets/images/pink-background.png";
+</script>
+
 <style scoped>
+
+    .contacts-page {
+        background-image: url("../assets/images/pink-background.png");
+
+        background-size: cover;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+        min-height: 100vh;
+
+        overflow: hidden;
+
+    }
+
     .contacts-card{
     
     max-width:900px;
+    
     margin:140px auto 80px;
 
     background:white;

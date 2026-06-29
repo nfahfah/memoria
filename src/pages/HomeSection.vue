@@ -103,13 +103,13 @@
         radial-gradient(
             circle at top left,
             rgba(255,223,120,.14),
-            transparent 40%
+            transparent 36%
         ),
     
         radial-gradient(
             circle at bottom right,
             rgba(255,223,120,.20),
-            transparent 42%
+            transparent 45%
         );
     
         pointer-events:none;
