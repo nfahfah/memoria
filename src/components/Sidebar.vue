@@ -61,11 +61,11 @@ const emit = defineEmits(["close-sidebar"]);
 
 const menu = [
   {
-    title: "🏠 Home",
+    title: "Home",
     route:"/"
   },
   {
-    title: "📖 Pre-Camp Booklet",
+    title: "Pre-Camp Booklet",
     route: "/precamp",
     children: [
         {
@@ -86,7 +86,7 @@ const menu = [
     ]
   },
   {
-    title: "🚂 Camp Guide",
+    title: "Camp Guide",
     route: "/camp-guide",
     children: [
         {
@@ -112,7 +112,7 @@ const menu = [
     ]
   },
   {
-    title: "🎓 NUS Guide",
+    title: "NUS Guide",
     route: "/nus-guide",
     children: [
         {

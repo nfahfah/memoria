@@ -16,68 +16,61 @@
     <span class="star s8">✦</span>
   </div>
 
-    <h1 class="page-title">
-        Pre-Camp Booklet
-    </h1>
+    <img
+      :src="pcHeader"
+      alt="Pre-Camp Booklet"
+      class="page-title-image"
+    />
 
     <p class="page-subtitle">
         Everything you need before your journey begins.
     </p>
 
-    <div class="booklet-grid">
+    <div class="memory-container">
 
-  <div
-    class="book-card overview-card"
-    @click="router.push('/precamp#overview')"
->
-    <div class="card-icon">📍</div>
+    <div
+        class="memory-item purple"
+        @click="router.push('/precamp#overview')"
+    >
 
-    <h2>Overview</h2>
+        <img
+            src="../assets/images/pball.png"
+            class="memory-ball"
+        >
 
-    <p>
-      Start your journey here and learn what Memoria is all about.
-    </p>
+  
 
-    <button class="open-btn">
-      Open →
-    </button>
-  </div>
+    </div>
 
-  <div
-    class="book-card packing-card"
-    @click="router.push('/precamp#packing-list')"
-  >
-    <div class="card-icon">🎒</div>
 
-    <h2>Packing List</h2>
+    <div
+        class="memory-item blue"
+        @click="router.push('/precamp#packing-list')"
+    >
 
-    <p>
-      Everything you'll need to prepare before camp begins.
-    </p>
+        <img
+            src="../assets/images/bball.png"
+            class="memory-ball"
+        >
 
-    <button class="open-btn">
-      Open →
-    </button>
-  </div>
 
-  <div
-    class="book-card getting-card"
-    @click="router.push('/precamp#getting-here')"
-  >
-    <div class="card-icon">🚆</div>
+    </div>
 
-    <h2>Getting Here</h2>
 
-    <p>
-      Find your way to NUS with maps and transport guides.
-    </p>
+    <div
+        class="memory-item pink"
+        @click="router.push('/precamp#getting-here')"
+    >
 
-    <button class="open-btn">
-      Open →
-    </button>
-  </div>
+        <img
+            src="../assets/images/piball.png"
+            class="memory-ball"
+        >
+
+    </div>
 
 </div>
+
 </section>
 
 <OverviewSection />
@@ -92,6 +85,7 @@
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+import pcHeader from "../assets/images/pc.png";
 
 
 import OverviewSection from "../pc-section/OverviewSection.vue";
@@ -115,23 +109,22 @@ import GettingHereSection from "../pc-section/GettingHereSection.vue";
 
 }
 
-.page-title{
-
-    font-family:"Luckiest Guy";
-
-    font-size:4rem;
-
-    color:#402B6D;
-
-    text-align:center;
-
-    margin-bottom:70px;
-
+.page-title-image {
+    display: block;
+    margin: 0 auto 40px;
+    max-width: 700px;  
+    width: 100%;
+    height: auto;
+    height: 180px;      /* The visible cropped height */
+    object-fit: cover;  /* Crops the image to fill the box */
+    object-position: center; /* Change what part is kept */
 }
 
 .page-subtitle{
 
     text-align:center;
+
+    font-family:"Luckiest Guy";
 
     color:#5E4D88;
 
@@ -143,124 +136,125 @@ import GettingHereSection from "../pc-section/GettingHereSection.vue";
 
 }
 
-.booklet-grid{
+.memory-container{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(3,1fr);
+    justify-content:center;
 
-    gap:35px;
+    align-items:center;
 
-    max-width:1200px;
+    gap:30px;
 
-    margin:auto;
+    flex-wrap:nowrap;
+
+    margin-top:80px;
 
 }
 
-.book-card{
+@media (max-width: 900px){
 
-    background:#FFF9E8;
+    .memory-container{
+        flex-wrap:wrap;
+    }
 
-    border-radius:26px;
+}
 
-    padding:40px 30px;
+.memory-item{
 
-    text-align:center;
+    position:relative;
 
-    box-shadow:0 12px 25px rgba(0,0,0,.08);
+    width:420px;
 
-    transition:.3s;
+    flex:0 0 420px;
 
     cursor:pointer;
 
 }
 
-.overview-card{
+.memory-ball{
 
-    background:#F3EEFF;
-    position:relative;
-    z-index:2;
+    width:100%;
 
-}
-
-.packing-card{
-
-    background:#EEF7FF;
-    position:relative;
-    z-index:2;
+    display:block;
 
 }
 
-.getting-card{
 
-    background:#FFF1F6;
-    position:relative;
-    z-index:2;
-}
 
-.book-card{
+.memory-ball{
 
-    cursor:pointer;
+    width:100%;
 
-}
+    display:block;
 
-.book-card:hover{
+    animation:float 4s ease-in-out infinite;
 
-    transform:translateY(-10px);
-
-    box-shadow:0 18px 35px rgba(0,0,0,.12);
+    transition:transform .3s ease, filter .3s ease;
 
 }
 
-.card-icon{
+.memory-item:hover .memory-ball{
 
-    font-size:3.5rem;
+    transform:
+        translateY(-15px)
+        scale(1.08);
 
-    margin-bottom:20px;
+    filter:drop-shadow(0 25px 35px rgba(0,0,0,.25));
 
 }
 
-.book-card h2{
+.memory-item:active .memory-ball{
+
+    transform:scale(.95);
+
+}
+
+.transport h4{
 
     color:#402B6D;
 
-    margin-bottom:15px;
+    margin-bottom:10px;
 
 }
 
-.book-card p{
+@keyframes float{
 
-    color:#555;
+    0%{
 
-    line-height:1.7;
+        transform:translateY(0px);
 
-    min-height:90px;
+    }
 
-}
+    50%{
 
-.open-btn{
+        transform:translateY(-18px);
 
-    margin-top:20px;
+    }
 
-    background:#402B6D;
+    100%{
 
-    color:white;
+        transform:translateY(0px);
 
-    border:none;
-
-    padding:12px 26px;
-
-    border-radius:999px;
-
-    cursor:pointer;
-
-    transition:.25s;
+    }
 
 }
 
-.open-btn:hover{
+.purple .memory-ball{
 
-    background:#5A3E98;
+    animation-delay:0s;
+
+}
+
+.blue .memory-ball{
+
+    animation-delay:1.2s;
+
+}
+
+.pink .memory-ball{
+
+    animation-delay:2.4s;
 
 }
 
@@ -285,6 +279,8 @@ import GettingHereSection from "../pc-section/GettingHereSection.vue";
     opacity:.12;
 
     font-size:1.8rem;
+
+    animation:twinkle 3s infinite;
 
 }
 
@@ -327,5 +323,20 @@ import GettingHereSection from "../pc-section/GettingHereSection.vue";
     top:220%;
     right:15%;
 }
+
+@keyframes twinkle {
+
+  0%,100%{
+    opacity:.1;
+    transform:scale(1);
+  }
+
+  50%{
+    opacity:.4;
+    transform:scale(1.4);
+  }
+
+}
+
 
 </style>
