@@ -11,24 +11,59 @@
 
     <div class="packing-card">
 
-        <p class="intro">
-            Here's what you should bring for camp!
+
+    <div class="packing-grid">
+
+        <div class="packing-section">
+            <h4>Clothing</h4>
+            <ul>
+                <li>3–4 shirts</li>
+                <li>1 dark-coloured shirt (Day 2 water games)</li>
+                <li>4 long pants</li>
+                <li>1–2 sets of pyjamas</li>
+                <li>Undergarments (as needed)</li>
+                <li>Extra covered shoes (water games)</li>
+                <li>Slippers / sandals</li>
+            </ul>
+        </div>
+
+        <div class="packing-section">
+            <h4>Personal Essentials</h4>
+            <ul>
+                <li>Towel (bath-sized)</li>
+                <li>Prayer paraphernalia</li>
+                <li>Personal medication (as needed)</li>
+                <li>Sunscreen</li>
+                <li>Toiletries (toothbrush, toothpaste, shampoo, soap, etc.)</li>
+                <li>Plastic bags (for soiled clothes)</li>
+            </ul>
+        </div>
+
+        <div class="packing-section">
+            <h4>Daily Items</h4>
+            <ul>
+                <li>Water bottle</li>
+                <li>Day bag</li>
+                <li>Phone charging accessories (eg. Portable charger, Charging cable)</li>
+                <li>Umbrella / poncho</li>
+            </ul>
+        </div>
+
+        <div class="packing-section note-card">
+            <h4>Accommodation</h4>
+
+            <p>
+                A bedsheet, thin blanket and pillow will be provided by CEU.
+            </p>
+        </div>
+
+        <p class="packing-note">
+            <strong>Note:</strong> This packing list serves as a suggested guide. If there are any other personal items you require during camp, feel free to bring them along!
         </p>
 
-        <ul class="packing-list">
-            <li> Comfortable clothes (3 days)</li>
-            <li> Extra change of clothes</li>
-            <li> Sports shoes</li>
-            <li> Slippers</li>
-            <li> Toiletries</li>
-            <li> Toothbrush & toothpaste</li>
-            <li> Water bottle</li>
-            <li> Portable charger</li>
-            <li> Personal medication</li>
-            <li> Prayer attire & prayer mat (if needed)</li>
-        </ul>
-
     </div>
+
+</div>
 
 </section>
 
@@ -78,6 +113,82 @@
     border-radius:28px;
 
     box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.packing-note{
+
+    grid-column: 1 / -1;
+
+    padding:20px 24px;
+
+    background:#F6FBFF;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+
+.packing-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.packing-section{
+
+    background:#F6FBFF;
+
+    padding:25px;
+
+    border-radius:18px;
+
+}
+
+.packing-section h4{
+
+    color:#402B6D;
+
+    margin-bottom:15px;
+
+}
+
+.packing-section ul{
+
+    margin:0;
+
+    padding-left:20px;
+
+    line-height:2;
+
+    color:#555;
+
+}
+
+.note-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.note-card p{
+
+    line-height:1.8;
+
+    color:#555;
 
 }
 

@@ -1,65 +1,48 @@
 <template>
   <section class="camp-page">
 
-    <h1 class="page-title">
-      Camp Guide
-    </h1>
+    <img
+      :src="campHeader"
+      alt="Camp Guide"
+      class="page-title-image"
+    />
 
     <p class="page-subtitle">
       Follow the journey through Memoria.
     </p>
 
-    <div class="timeline">
+    <div class="circle-map">
 
-      <div
-        class="timeline-item"
+    <div
+        class="station station-top"
         @click="router.push('/camp-guide#day1')"
-      >
-        <div class="dot blue"></div>
-
-        <div class="content">
-          <h2>Day 1</h2>
-          <p>First stop — introductions, games and making memories.</p>
-        </div>
-      </div>
-
-      <div
-        class="timeline-item"
-        @click="router.push('/camp-guide#day2')"
-      >
-        <div class="dot green"></div>
-
-        <div class="content">
-          <h2>Day 2</h2>
-          <p>The adventure continues with activities and bonding.</p>
-        </div>
-      </div>
-
-      <div
-        class="timeline-item"
-        @click="router.push('/camp-guide#day3')"
-      >
-        <div class="dot orange"></div>
-
-        <div class="content">
-          <h2>Day 3</h2>
-          <p>The final stop before your NUS journey officially begins.</p>
-        </div>
-      </div>
-
-      <div
-        class="timeline-item"
-        @click="router.push('/camp-guide#our-sponsors')"
-      >
-        <div class="dot purple"></div>
-
-        <div class="content">
-          <h2>Our Sponsors</h2>
-          <p>A big thank you to everyone who made Memoria possible.</p>
-        </div>
-      </div>
-
+    >
+        <img src="../assets/images/d1.png" class="station-img">
     </div>
+
+    <div
+        class="station station-right"
+        @click="router.push('/camp-guide#day2')"
+    >
+        <img src="../assets/images/d2.png" class="station-img">
+    </div>
+
+    <div
+        class="station station-bottom"
+        @click="router.push('/camp-guide#day3')"
+    >
+        <img src="../assets/images/d3.png" class="station-img">
+    </div>
+
+    <!-- remove this if you only have 3 stations -->
+    <div
+        class="station station-left"
+        @click="router.push('/camp-guide#our-sponsors')"
+    >
+        <img src="../assets/images/sponsors.png" class="station-img">
+    </div>
+
+</div>
 
   </section>
 
@@ -75,6 +58,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+import campHeader from "../assets/images/c.png";
 
 import Day1Section from "../c-section/Day1Section.vue";
 import Day2Section from "../c-section/Day2Section.vue";
@@ -90,7 +74,7 @@ const router = useRouter();
 
     min-height:100vh;
 
-    background:#DCEEFF;
+    background:#cddecb;
 
     padding:110px 8%;
 
@@ -98,18 +82,16 @@ const router = useRouter();
 
 }
 
-.page-title{
-
-    font-family:"Luckiest Guy";
-
-    font-size:4rem;
-
-    color:#402B6D;
-
-    text-align:center;
-
-    margin-bottom:15px;
-
+.page-title-image {
+    display: block;
+    margin: 0 auto 40px;
+    max-width: 700px;  
+    width: 100%;
+    height: auto;
+    height: 140px;      /* The visible cropped height */
+    object-fit: cover;  /* Crops the image to fill the box */
+    object-position: center; /* Change what part is kept */
+    
 }
 
 .page-subtitle{
@@ -124,140 +106,136 @@ const router = useRouter();
 
 }
 
-.timeline{
+.circle-map{
 
     position:relative;
 
-    max-width:650px;
+    width:900px;
 
-    margin:auto;
+    height:900px;
+
+    margin:60px auto;
 
 }
 
-.timeline::before{
+.circle-map::before{
 
     content:"";
 
     position:absolute;
 
-    left:18px;
+    top:50%;
+    left:50%;
 
-    top:0;
+    width:620px;
+    height:620px;
 
-    bottom:0;
+    transform:translate(-50%,-50%);
 
-    width:4px;
-
-    background:#B8D9F4;
-
-    border-radius:999px;
+    border:12px solid #8CB8E8;
+    border-radius:50%;
 
 }
 
-.timeline-item{
+.station{
 
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:25px;
-
-    margin-bottom:55px;
+    position:absolute;
 
     cursor:pointer;
 
-    transition:.25s;
+    display:flex;
 
-    position:relative;
+    justify-content:center;
 
-}
-
-.timeline-item:hover{
-
-    transform:translateX(10px);
+    align-items:center;
 
 }
 
-.dot{
+.station::before{
 
-    width:38px;
+    content:"";
 
-    height:38px;
+    position:absolute;
+
+    width:22px;
+
+    height:22px;
+
+    background:white;
+
+    border:6px solid #8CB8E8;
 
     border-radius:50%;
 
-    flex-shrink:0;
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:1;
+
+}
+
+.station-img{
 
     position:relative;
 
     z-index:2;
 
-    border:5px solid white;
+    width:400px;
 
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
+    display:block;
 
-}
-
-.blue{
-
-    background:#6DB4E8;
+    transition:.3s;
 
 }
 
-.green{
+.station:hover .station-img{
 
-    background:#7BC96F;
-
-}
-
-.orange{
-
-    background:#FFA552;
+    transform:scale(1.08);
 
 }
 
-.purple{
+.station-top{
 
-    background:#9B59B6;
+    top:140px;
 
-}
+    left:50%;
 
-.content{
-
-    background:white;
-
-    padding:22px 26px;
-
-    border-radius:18px;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
-
-    flex:1;
-
-    transition:.25s;
+    transform:translate(-50%,-50%);
 
 }
 
-.timeline-item:hover .content{
+.station-right{
 
-    box-shadow:0 14px 30px rgba(0,0,0,.12);
+    right:140px;
 
-}
+    top:50%;
 
-.content h2{
-
-    color:#402B6D;
-
-    margin-bottom:10px;
+    transform:translate(50%,-50%);
 
 }
 
-.content p{
+.station-bottom{
 
-    color:#666;
+    bottom:140px;
 
-    line-height:1.6;
+    left:50%;
+
+    transform:translate(-50%,50%);
 
 }
+
+.station-left{
+
+    left:140px;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
 
 </style>

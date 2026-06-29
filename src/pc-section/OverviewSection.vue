@@ -31,6 +31,60 @@
 
     </div>
 
+    <div class="contacts-card">
+
+    <h3 class="card-title">
+        Important Contacts
+    </h3>
+
+    <div class="contacts-grid">
+
+        <!-- Iffah -->
+        <div class="contact-card">
+            <h4>Iffah</h4>
+            <p>Project Director</p>
+            <p>📞 83181773</p>
+            <p>💬 @niffahhh</p>
+        </div>
+
+        <!-- Batrisyiya -->
+        <div class="contact-card">
+            <h4>Batrisyiya</h4>
+            <p>Assistant Project Director (Programmes)</p>
+            <p>📞 Number</p>
+            <p>💬 @batrisyiya</p>
+        </div>
+
+        <!-- Danial -->
+        <div class="contact-card">
+            <h4>Danial</h4>
+            <p>Assistant Project Director (Finance)</p>
+            <p>Chief Safety Officer</p>
+            <p>📞 Number</p>
+            <p>💬 @dzanefy</p>
+        </div>
+
+        <!-- Humairah -->
+        <div class="contact-card">
+            <h4>Humairah</h4>
+            <p>Deputy Chief Safety Officer</p>
+            <p>Female Residence IC</p>
+            <p>📞 Number</p>
+            <p>💬 @</p>
+        </div>
+
+        <!-- Syazmi -->
+        <div class="contact-card">
+            <h4>Syazmi</h4>
+            <p>Male Residence IC</p>
+            <p>Safety Officer</p>
+            <p>📞 Number</p>
+            <p>💬 @</p>
+        </div>
+
+    </div>
+  </div>
+
 </section>
 
 </template>
@@ -56,7 +110,7 @@
 
     font-family:"Luckiest Guy";
 
-    font-size:3rem;
+    font-size:60px;
 
     color:#402B6D;
 
@@ -79,6 +133,67 @@
     border-radius:28px;
 
     box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.card-title{
+    font-family:"Luckiest Guy";
+    color:#402B6D;
+    font-size: 40px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.contacts-card{
+
+    max-width:900px;
+    margin:40px auto 0;
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:28px;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.contacts-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.contact-card{
+
+    background:#F8F2FF;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+.contact-card h4{
+
+    color:#402B6D;
+
+    margin-bottom:10px;
+
+}
+
+.contact-card p{
+
+    margin:6px 0;
+
+    color:#555;
+
+    line-height:1.5;
 
 }
 
