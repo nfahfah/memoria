@@ -290,6 +290,51 @@
 
 }
 
+</style>
+    
+    <script setup>
+    import { ref } from "vue";
+    
+    const address = "11 Kent Ridge Dr, #01-02, Singapore 119244";
+    const copied = ref(false);
+    
+    async function copyAddress() {
+        if (navigator.clipboard && window.isSecureContext) {
+            try {
+                await navigator.clipboard.writeText(address);
+                showCopied();
+                return;
+            } catch (err) {
+                console.error("Clipboard API failed:", err);
+            }
+        }
+    
+        // Fallback for non-secure contexts or unsupported browsers
+        try {
+            const textarea = document.createElement("textarea");
+            textarea.value = address;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            showCopied();
+        } catch (err) {
+            console.error("Fallback copy failed:", err);
+        }
+    }
+    
+    function showCopied() {
+        copied.value = true;
+        setTimeout(() => {
+            copied.value = false;
+        }, 2000);
+    }
+    </script>
+    
+    <style scoped>
     
 .getting-page{
     
