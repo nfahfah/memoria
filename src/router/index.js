@@ -4,6 +4,7 @@ import HomeSection from "../pages/HomeSection.vue";
 import PreCampSection from "../pages/PreCampSection.vue";
 import CampGuideSection from "../pages/CampGuideSection.vue";
 import NUSGuideSection from "../pages/NUSGuideSection.vue";
+import ImportantContacts from "../pages/ImportantContacts.vue";
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
   {
     path: "/nus-guide",
     component: NUSGuideSection
+  },
+  {
+    path: "/importantcontacts",
+    component: ImportantContacts
   }
 ];
 

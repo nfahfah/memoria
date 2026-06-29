@@ -148,7 +148,11 @@ const menu = [
         {
         }
     ]
-  }
+  },
+  {
+    title: "Important Contacts",
+    route:"/importantcontacts"
+  },
 ];
 
 const openSection = ref(null);
