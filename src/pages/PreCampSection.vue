@@ -340,96 +340,9 @@ import GettingHereSection from "../pc-section/GettingHereSection.vue";
 
 
 </style>
-    <section
-        id="precamp"
-        class="precamp-page"
-      
-    >
-    
-        <h1 class="page-title">
-            Pre-Camp Booklet
-        </h1>
-    
-        <p class="page-subtitle">
-            Everything you need before your journey begins.
-        </p>
-    
-        <div class="booklet-grid">
-    
-      <div
-        class="book-card overview-card"
-        @click="router.push('/precamp#overview')"
-    >
-        <div class="card-icon">📍</div>
-    
-        <h2>Overview</h2>
-    
-        <p>
-          Start your journey here and learn what Memoria is all about.
-        </p>
-    
-        <button class="open-btn">
-          Open →
-        </button>
-      </div>
-    
-      <div
-        class="book-card packing-card"
-        @click="router.push('/precamp#packing-list')"
-      >
-        <div class="card-icon">🎒</div>
-    
-        <h2>Packing List</h2>
-    
-        <p>
-          Everything you'll need to prepare before camp begins.
-        </p>
-    
-        <button class="open-btn">
-          Open →
-        </button>
-      </div>
-    
-      <div
-        class="book-card getting-card"
-        @click="router.push('/precamp#getting-here')"
-      >
-        <div class="card-icon">🚆</div>
-    
-        <h2>Getting Here</h2>
-    
-        <p>
-          Find your way to NUS with maps and transport guides.
-        </p>
-    
-        <button class="open-btn">
-          Open →
-        </button>
-      </div>
-    
-    </div>
-    </section>
-    
-    <OverviewSection />
-    
-    <PackingListSection />
-    
-    <GettingHereSection />
-    
-    </template>
-    
-    <script setup>
-    import { useRouter } from "vue-router";
-    
-    const router = useRouter();
-    
-    
-    import OverviewSection from "../pc-section/OverviewSection.vue";
-    import PackingListSection from "../pc-section/PackingListSection.vue";
-    import GettingHereSection from "../pc-section/GettingHereSection.vue";
-    
-    
-    </script>
+   
+
+
     
     <style scoped>
     

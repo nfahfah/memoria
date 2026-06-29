@@ -5,9 +5,50 @@
     class="getting-page"
 >
 
+<div class="stars">
+          <span class="star s1">✦</span>
+          <span class="star s2">✧</span>
+          <span class="star s3">⋆</span>
+          <span class="star s4">✦</span>
+          <span class="star s5">✧</span>
+          <span class="star s6">⋆</span>
+          <span class="star s7">✦</span>
+          <span class="star s8">✧</span>
+          <span class="star s9">⋆</span>
+        </div>
+
     <h2 class="section-title">
-         Getting Here
-    </h2>
+             Getting Here (Day 1)!
+        </h2>
+    
+        <div class="getting-card1">
+    
+            <p class="intro">
+                Please arrive at the camp venue on time and safely. Here are some ways to get to NUS. Take note that this is only for Day 1!
+            </p>
+    
+            <div class="transport">
+    
+                <h3>Reporting Venue</h3>
+    
+                <div class="address-row">
+    
+                    <p class="address-text">
+                        11 Kent Ridge Dr, #01-02, Singapore 119244
+                    </p>
+    
+                    <button
+                        class="copy-btn"
+                        @click="copyAddress"
+                    >
+                        {{ copied ? "Copied!" : "Copy" }}
+                    </button>
+    
+                </div>
+    
+          </div>
+        </div>
+
 
     <div class="getting-container">
 
@@ -104,7 +145,46 @@
 </template>
 
 <script setup>
-</script>
+    import { ref } from "vue";
+    
+    const address = "11 Kent Ridge Dr, #01-02, Singapore 119244";
+    const copied = ref(false);
+    
+    async function copyAddress() {
+        if (navigator.clipboard && window.isSecureContext) {
+            try {
+                await navigator.clipboard.writeText(address);
+                showCopied();
+                return;
+            } catch (err) {
+                console.error("Clipboard API failed:", err);
+            }
+        }
+    
+        // Fallback for non-secure contexts or unsupported browsers
+        try {
+            const textarea = document.createElement("textarea");
+            textarea.value = address;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            showCopied();
+        } catch (err) {
+            console.error("Fallback copy failed:", err);
+        }
+    }
+    
+    function showCopied() {
+        copied.value = true;
+        setTimeout(() => {
+            copied.value = false;
+        }, 2000);
+    }
+    </script>
 
 <style scoped>
 
@@ -210,147 +290,8 @@
 
 }
 
-</style>
-    <section
-        id="getting-here"
-        class="getting-page"
-    >
     
-        <div class="stars">
-          <span class="star s1">✦</span>
-          <span class="star s2">✧</span>
-          <span class="star s3">⋆</span>
-          <span class="star s4">✦</span>
-          <span class="star s5">✧</span>
-          <span class="star s6">⋆</span>
-          <span class="star s7">✦</span>
-          <span class="star s8">✧</span>
-          <span class="star s9">⋆</span>
-        </div>
-    
-        <h2 class="section-title">
-             Getting Here (Day 1)!
-        </h2>
-    
-        <div class="getting-card">
-    
-            <p class="intro">
-                Please arrive at the camp venue on time and safely. Here are some ways to get to NUS. Take note that this is only for Day 1!
-            </p>
-    
-            <div class="transport">
-    
-                <h3>Reporting Venue</h3>
-    
-                <div class="address-row">
-    
-                    <p class="address-text">
-                        11 Kent Ridge Dr, #01-02, Singapore 119244
-                    </p>
-    
-                    <button
-                        class="copy-btn"
-                        @click="copyAddress"
-                    >
-                        {{ copied ? "Copied!" : "Copy" }}
-                    </button>
-    
-                </div>
-    
-            </div>
-    
-            <div class="transport">
-    
-                <h3>🚇 MRT + Bus</h3>
-    
-                <p>
-                    Take the Circle Line or East-West Line to the nearest MRT station,
-                    then transfer to the appropriate NUS shuttle bus or public bus.
-                </p>
-    
-            </div>
-    
-            <div class="transport">
-    
-                <h3>🚌 Public Bus</h3>
-    
-                <p>
-                    Several public buses serve NUS, including 95, 96, 151, 183 and 198.
-                </p>
-    
-            </div>
-    
-            <div class="transport">
-    
-                <h3>🚗 Grab / Taxi</h3>
-    
-                <p>
-                    Set your destination to the reporting venue provided by the organising committee.
-                </p>
-    
-            </div>
-    
-            <div class="transport">
-    
-                <h3>📍 Reporting Venue</h3>
-    
-                <p>
-                    <strong>To be announced.</strong>
-                </p>
-    
-            </div>
-    
-        </div>
-    
-    </section>
-    
-    </template>
-    
-    <script setup>
-    import { ref } from "vue";
-    
-    const address = "11 Kent Ridge Dr, #01-02, Singapore 119244";
-    const copied = ref(false);
-    
-    async function copyAddress() {
-        if (navigator.clipboard && window.isSecureContext) {
-            try {
-                await navigator.clipboard.writeText(address);
-                showCopied();
-                return;
-            } catch (err) {
-                console.error("Clipboard API failed:", err);
-            }
-        }
-    
-        // Fallback for non-secure contexts or unsupported browsers
-        try {
-            const textarea = document.createElement("textarea");
-            textarea.value = address;
-            textarea.style.position = "fixed";
-            textarea.style.opacity = "0";
-            document.body.appendChild(textarea);
-            textarea.focus();
-            textarea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textarea);
-            showCopied();
-        } catch (err) {
-            console.error("Fallback copy failed:", err);
-        }
-    }
-    
-    function showCopied() {
-        copied.value = true;
-        setTimeout(() => {
-            copied.value = false;
-        }, 2000);
-    }
-    </script>
-    
-    <style scoped>
-    
-    .getting-page{
+.getting-page{
     
         min-height:100vh;
     
@@ -364,9 +305,9 @@
     
         overflow:hidden;
     
-    }
+}
     
-    .stars{
+.stars{
     
         position:absolute;
     
@@ -382,9 +323,9 @@
     
         z-index:0;
     
-    }
+  }
     
-    .star{
+  .star{
     
         position:absolute;
     
@@ -396,7 +337,7 @@
     
         text-shadow:0 0 12px rgba(240,149,77,.4);
     
-    }
+  }
     
     .s1{
         top:8%;
@@ -590,4 +531,4 @@
     
     }
     
-    </style>
+  </style>
