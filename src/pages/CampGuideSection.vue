@@ -238,4 +238,79 @@ const router = useRouter();
 }
 
 
+/* =========================
+   Tablet
+========================= */
+@media (max-width: 768px) {
+
+.camp-page {
+  padding: 80px 6%;
+}
+
+.page-title {
+  font-size: 2.8rem;
+}
+
+.page-subtitle {
+  margin-bottom: 50px;
+}
+
+.timeline-item {
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.content {
+  padding: 18px 20px;
+}
+
+}
+
+/* =========================
+   Mobile Phones
+========================= */
+@media (max-width: 480px) {
+
+.camp-page {
+  padding: 70px 5%;
+}
+
+.page-title {
+  font-size: 2.1rem;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+}
+
+.timeline::before {
+  left: 14px;
+}
+
+.dot {
+  width: 30px;
+  height: 30px;
+  border-width: 4px;
+}
+
+.timeline-item {
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.timeline-item:hover {
+  transform: none;
+}
+
+.content {
+  padding: 16px 18px;
+  border-radius: 14px;
+}
+
+.content p {
+  font-size: 0.92rem;
+}
+
+}
+
 </style>

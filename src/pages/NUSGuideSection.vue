@@ -102,4 +102,60 @@ h1{
 
 }
 
+/* =========================
+   Tablet
+========================= */
+@media (max-width: 768px) {
+
+.home {
+  padding-top: 90px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.scrapbook-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 45px;
+}
+
+h1 {
+  font-size: 3.4rem;
+}
+
+}
+
+/* =========================
+   Mobile Phones
+========================= */
+@media (max-width: 480px) {
+
+.home {
+  padding-top: 70px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.scrapbook-card {
+  width: 100%;
+  padding: 32px 24px;
+  border-radius: 20px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 14px 0;
+}
+
+.small-title {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-size: 1rem;
+}
+
+}
+
 </style>

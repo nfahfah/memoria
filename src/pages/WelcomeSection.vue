@@ -23,7 +23,7 @@
       <div class="message-card">
 
         <p class="message">
-          Welcome to Memoria! We are so excited to have you join us as you begin your NUS journey. We hope these three days will be filled with laughter, friendships and unforgettable memories. Enjoy every moment and don't be afraid to step out of your comfort zone—we can't wait to meet all of you!
+          Welcome onboard Memoria! We are so excited to have you join us as you begin your NUS journey. We hope these three days will be filled with laughter, friendships and unforgettable memories. Enjoy every moment and don't be afraid to step out of your comfort zone. We can't wait to meet all of you! 😊
         </p>
 
         <p class="signature">
@@ -81,7 +81,9 @@ function goToPreCamp() {
 
 .welcome-title{
 
-    font-family:"Luckiest Guy", cursive;
+    font-family:"Luckiest Guy";
+
+    font-weight:700;
 
     font-size:4.5rem;
 
@@ -91,7 +93,7 @@ function goToPreCamp() {
 
     text-align:center;
 
-    letter-spacing:2px;
+    letter-spacing:1px;
 
 }
 
@@ -226,6 +228,87 @@ function goToPreCamp() {
     background:#573A99;
 
     transform:translateY(-3px);
+
+}
+
+/* =========================
+   Tablet
+========================= */
+@media (max-width: 768px) {
+
+.welcome-page {
+  padding: 60px 6%;
+}
+
+.welcome-title {
+  font-size: 3rem;
+  margin-bottom: 45px;
+  padding-top: 30px;
+}
+
+.welcome-content {
+  flex-direction: column;
+  gap: 45px;
+}
+
+.polaroid img {
+  width: 260px;
+}
+
+.message-card {
+  max-width: 100%;
+  padding: 32px;
+}
+
+.next-button {
+  margin-top: 45px;
+}
+
+}
+
+/* =========================
+   Mobile Phones
+========================= */
+@media (max-width: 480px) {
+
+.welcome-page {
+  padding: 50px 5%;
+}
+
+.welcome-title {
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 35px;
+  padding-top: 20px;
+}
+
+.welcome-content {
+  gap: 35px;
+}
+
+.polaroid {
+  padding: 14px 14px 55px;
+}
+
+.polaroid img {
+  width: 70vw;
+  max-width: 240px;
+}
+
+.message-card {
+  padding: 24px;
+  border-radius: 18px;
+}
+
+.message {
+  font-size: 1rem;
+}
+
+.next-button {
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  text-align: center;
+}
 
 }
 
