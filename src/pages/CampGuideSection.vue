@@ -1,5 +1,5 @@
 <template>
-  <section class="camp-page">
+  <section class="camp-page train-theme">
 
     <img
       :src="campHeader"
@@ -8,51 +8,108 @@
     />
 
     <p class="page-subtitle">
-      Follow the journey through Memoria.
+      All aboard! Follow the journey through Memoria.
     </p>
 
-    <div class="circle-map">
+    <div class="track-wrap">
 
-    <div
-        class="station station-top"
-        @click="router.push('/camp-guide#day1')"
-    >
-        <img src="../assets/images/d1.png" class="station-img">
+      <div class="smoke-field">
+        <span class="smoke s1"></span>
+        <span class="smoke s2"></span>
+        <span class="smoke s3"></span>
+      </div>
+
+      <div class="train-row">
+
+        <!-- engine, purely decorative -->
+        <div class="engine">
+          <div class="engine-body">
+            <div class="engine-window"></div>
+          </div>
+          <div class="engine-nose"></div>
+          <div class="funnel"></div>
+          <div class="wheels">
+            <span class="wheel"></span>
+            <span class="wheel"></span>
+          </div>
+        </div>
+
+        <!-- carriages, these are the clickable ones -->
+        <div
+          class="carriage day1-carriage"
+          @click="router.push('/camp-guide#day1')"
+        >
+          <div class="carriage-body">
+            <span class="carriage-icon">1️⃣</span>
+            <p class="carriage-label">Day 1</p>
+          </div>
+          <div class="coupler"></div>
+          <div class="wheels">
+            <span class="wheel"></span>
+            <span class="wheel"></span>
+          </div>
+        </div>
+
+        <div
+          class="carriage day2-carriage"
+          @click="router.push('/camp-guide#day2')"
+        >
+          <div class="carriage-body">
+            <span class="carriage-icon">2️⃣</span>
+            <p class="carriage-label">Day 2</p>
+          </div>
+          <div class="coupler"></div>
+          <div class="wheels">
+            <span class="wheel"></span>
+            <span class="wheel"></span>
+          </div>
+        </div>
+
+        <div
+          class="carriage day3-carriage"
+          @click="router.push('/camp-guide#day3')"
+        >
+          <div class="carriage-body">
+            <span class="carriage-icon">3️⃣</span>
+            <p class="carriage-label">Day 3</p>
+          </div>
+          <div class="coupler"></div>
+          <div class="wheels">
+            <span class="wheel"></span>
+            <span class="wheel"></span>
+          </div>
+        </div>
+
+        <div
+          class="carriage sponsors-carriage"
+          @click="router.push('/camp-guide#our-sponsors')"
+        >
+          <div class="carriage-body">
+            <span class="carriage-icon">💛</span>
+            <p class="carriage-label">Sponsors</p>
+          </div>
+          <div class="coupler"></div>
+          <div class="wheels">
+            <span class="wheel"></span>
+            <span class="wheel"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rail-track"></div>
+
     </div>
-
-    <div
-        class="station station-right"
-        @click="router.push('/camp-guide#day2')"
-    >
-        <img src="../assets/images/d2.png" class="station-img">
-    </div>
-
-    <div
-        class="station station-bottom"
-        @click="router.push('/camp-guide#day3')"
-    >
-        <img src="../assets/images/d3.png" class="station-img">
-    </div>
-
-    <!-- remove this if you only have 3 stations -->
-    <div
-        class="station station-left"
-        @click="router.push('/camp-guide#our-sponsors')"
-    >
-        <img src="../assets/images/sponsors.png" class="station-img">
-    </div>
-
-</div>
 
   </section>
 
   <Day1Section />
 
-<Day2Section />
+  <Day2Section />
 
-<Day3Section />
+  <Day3Section />
 
-<OurSponsorsSection />
+  <OurSponsorsSection />
 
 </template>
 
@@ -85,13 +142,12 @@ const router = useRouter();
 .page-title-image {
     display: block;
     margin: 0 auto 40px;
-    max-width: 700px;  
+    max-width: 700px;
     width: 100%;
     height: auto;
-    height: 140px;      /* The visible cropped height */
-    object-fit: cover;  /* Crops the image to fill the box */
-    object-position: center; /* Change what part is kept */
-    
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .page-subtitle{
@@ -102,141 +158,360 @@ const router = useRouter();
 
     font-size:1.1rem;
 
-    margin-bottom:70px;
+    margin-bottom:100px;
 
 }
 
-.circle-map{
+.track-wrap{
 
     position:relative;
 
-    width:900px;
+    max-width:1100px;
 
-    height:900px;
+    margin:0 auto;
 
-    margin:60px auto;
-
-}
-
-.circle-map::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:50%;
-    left:50%;
-
-    width:620px;
-    height:620px;
-
-    transform:translate(-50%,-50%);
-
-    border:12px solid #8CB8E8;
-    border-radius:50%;
+    padding-bottom:40px;
 
 }
 
-.station{
+.smoke-field{
 
     position:absolute;
 
-    cursor:pointer;
+    top:-70px;
 
-    display:flex;
+    left:2%;
 
-    justify-content:center;
+    width:120px;
 
-    align-items:center;
+    height:80px;
+
+    pointer-events:none;
 
 }
 
-.station::before{
-
-    content:"";
+.smoke{
 
     position:absolute;
+
+    bottom:0;
+
+    left:10px;
 
     width:22px;
 
     height:22px;
 
-    background:white;
-
-    border:6px solid #8CB8E8;
+    background:rgba(255,255,255,.75);
 
     border-radius:50%;
 
-    top:50%;
+    opacity:0;
 
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    z-index:1;
+    animation:puff 3s ease-out infinite;
 
 }
 
-.station-img{
+.s1{ animation-delay:0s; }
+.s2{ animation-delay:1s; left:20px; }
+.s3{ animation-delay:2s; left:0px; }
+
+@keyframes puff{
+
+    0%{
+
+        opacity:0;
+
+        transform:translate(0,0) scale(.6);
+
+    }
+
+    20%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translate(30px,-70px) scale(1.6);
+
+    }
+
+}
+
+.train-row{
 
     position:relative;
 
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:18px;
+
+    padding:0 10px;
+
     z-index:2;
 
-    width:400px;
-
-    display:block;
-
-    transition:.3s;
+    animation:chug 2.2s ease-in-out infinite;
 
 }
 
-.station:hover .station-img{
+@keyframes chug{
 
-    transform:scale(1.08);
+    0%,100%{ transform:translateY(0); }
 
-}
-
-.station-top{
-
-    top:140px;
-
-    left:50%;
-
-    transform:translate(-50%,-50%);
+    50%{ transform:translateY(-4px); }
 
 }
 
-.station-right{
+/* ===== engine ===== */
 
-    right:140px;
+.engine{
 
-    top:50%;
+    position:relative;
 
-    transform:translate(50%,-50%);
+    display:flex;
 
-}
+    flex-direction:column;
 
-.station-bottom{
+    align-items:center;
 
-    bottom:140px;
-
-    left:50%;
-
-    transform:translate(-50%,50%);
+    flex:0 0 auto;
 
 }
 
-.station-left{
+.engine-body{
 
-    left:140px;
+    width:150px;
 
-    top:50%;
+    height:110px;
 
-    transform:translate(-50%,-50%);
+    background:linear-gradient(160deg, #402B6D, #573A99);
+
+    border-radius:18px 18px 10px 10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:0 12px 20px rgba(0,0,0,.25), inset 0 4px 8px rgba(255,255,255,.15);
+
+    position:relative;
 
 }
 
+.engine-window{
+
+    width:60px;
+
+    height:44px;
+
+    background:#BEE3F0;
+
+    border-radius:10px;
+
+    border:4px solid white;
+
+    box-shadow:inset 0 4px 8px rgba(0,0,0,.15);
+
+}
+
+.engine-nose{
+
+    position:absolute;
+
+    left:-28px;
+
+    bottom:26px;
+
+    width:0;
+
+    height:0;
+
+    border-top:32px solid transparent;
+
+    border-bottom:32px solid transparent;
+
+    border-right:28px solid #402B6D;
+
+}
+
+.funnel{
+
+    position:absolute;
+
+    top:-26px;
+
+    left:24px;
+
+    width:20px;
+
+    height:30px;
+
+    background:#2C1D4D;
+
+    border-radius:4px 4px 0 0;
+
+}
+
+/* ===== carriages ===== */
+
+.carriage{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    flex:0 0 auto;
+
+    cursor:pointer;
+
+    transition:transform .25s ease;
+
+}
+
+.carriage:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.carriage:hover .carriage-body{
+
+    box-shadow:0 18px 26px rgba(0,0,0,.3), inset 0 4px 8px rgba(255,255,255,.25);
+
+}
+
+.carriage-body{
+
+    width:130px;
+
+    height:100px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    box-shadow:0 12px 20px rgba(0,0,0,.22), inset 0 4px 8px rgba(255,255,255,.2);
+
+    transition:box-shadow .25s ease;
+
+}
+
+.day1-carriage .carriage-body{ background:linear-gradient(160deg, #FFD87A, #F0A825); }
+.day2-carriage .carriage-body{ background:linear-gradient(160deg, #8BD3F0, #4599C9); }
+.day3-carriage .carriage-body{ background:linear-gradient(160deg, #FF9A8B, #E8654F); }
+.sponsors-carriage .carriage-body{ background:linear-gradient(160deg, #B29CF0, #7B5FCF); }
+
+.carriage-icon{
+
+    font-size:1.7rem;
+
+}
+
+.carriage-label{
+
+    font-family:"Luckiest Guy", cursive;
+
+    color:white;
+
+    font-size:.9rem;
+
+    text-shadow:0 2px 4px rgba(0,0,0,.25);
+
+}
+
+.coupler{
+
+    width:14px;
+
+    height:6px;
+
+    background:#5E4A30;
+
+    margin-top:-3px;
+
+    z-index:-1;
+
+}
+
+/* ===== wheels, shared ===== */
+
+.wheels{
+
+    display:flex;
+
+    gap:26px;
+
+    margin-top:6px;
+
+}
+
+.wheel{
+
+    width:26px;
+
+    height:26px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle at 35% 30%, #7A7A7A, #333);
+
+    border:3px solid #222;
+
+    animation:spin 1.4s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{ transform:rotate(0deg); }
+
+    to{ transform:rotate(360deg); }
+
+}
+
+/* ===== rail track ===== */
+
+.rail-track{
+
+    position:relative;
+
+    height:16px;
+
+    margin-top:-4px;
+
+    background:repeating-linear-gradient(
+        to right,
+        #8B6F47 0px,
+        #8B6F47 10px,
+        transparent 10px,
+        transparent 26px
+    );
+
+    border-top:4px solid #5E4A30;
+
+    border-bottom:4px solid #5E4A30;
+
+}
 
 /* =========================
    Tablet
@@ -247,22 +522,34 @@ const router = useRouter();
   padding: 80px 6%;
 }
 
-.page-title {
-  font-size: 2.8rem;
-}
-
 .page-subtitle {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
+  font-size:1rem;
 }
 
-.timeline-item {
-  gap: 18px;
-  margin-bottom: 40px;
+.track-wrap{
+
+  overflow-x:auto;
+
+  padding-bottom:30px;
+
 }
 
-.content {
-  padding: 18px 20px;
+.train-row{
+
+  width:max-content;
+
+  padding:0 20px;
+
 }
+
+.engine-body{ width:120px; height:90px; }
+.engine-window{ width:48px; height:36px; }
+.carriage-body{ width:105px; height:82px; }
+.carriage-icon{ font-size:1.4rem; }
+.carriage-label{ font-size:.78rem; }
+.wheel{ width:20px; height:20px; }
+.wheels{ gap:20px; }
 
 }
 
@@ -275,41 +562,21 @@ const router = useRouter();
   padding: 70px 5%;
 }
 
-.page-title {
-  font-size: 2.1rem;
-}
-
 .page-subtitle {
-  font-size: 1rem;
-}
-
-.timeline::before {
-  left: 14px;
-}
-
-.dot {
-  width: 30px;
-  height: 30px;
-  border-width: 4px;
-}
-
-.timeline-item {
-  gap: 14px;
-  margin-bottom: 32px;
-}
-
-.timeline-item:hover {
-  transform: none;
-}
-
-.content {
-  padding: 16px 18px;
-  border-radius: 14px;
-}
-
-.content p {
   font-size: 0.92rem;
+  margin-bottom: 55px;
 }
+
+.engine-body{ width:100px; height:76px; }
+.engine-window{ width:40px; height:30px; }
+.engine-nose{ left:-22px; bottom:20px; border-top-width:24px; border-bottom-width:24px; border-right-width:22px; }
+.funnel{ height:22px; top:-20px; }
+.carriage-body{ width:92px; height:72px; border-radius:14px; }
+.carriage-icon{ font-size:1.2rem; }
+.carriage-label{ font-size:.7rem; }
+.wheel{ width:16px; height:16px; border-width:2px; }
+.wheels{ gap:16px; }
+.rail-track{ height:12px; }
 
 }
 
