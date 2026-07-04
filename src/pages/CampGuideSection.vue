@@ -23,15 +23,7 @@
 
         <!-- engine, purely decorative -->
         <div class="engine">
-          <div class="engine-body">
-            <div class="engine-window"></div>
-          </div>
-          <div class="engine-nose"></div>
-          <div class="funnel"></div>
-          <div class="wheels">
-            <span class="wheel"></span>
-            <span class="wheel"></span>
-          </div>
+          <img src="../assets/images/memoria-train.png" class="engine-img" alt="Train engine" />
         </div>
 
         <!-- carriages, these are the clickable ones -->
@@ -40,8 +32,8 @@
           @click="router.push('/camp-guide#day1')"
         >
           <div class="carriage-body">
-            <span class="carriage-icon">1️⃣</span>
-            <p class="carriage-label">Day 1</p>
+            <p class="carriage-label">Day</p>
+            <span class="carriage-icon">1</span>
           </div>
           <div class="coupler"></div>
           <div class="wheels">
@@ -55,8 +47,8 @@
           @click="router.push('/camp-guide#day2')"
         >
           <div class="carriage-body">
-            <span class="carriage-icon">2️⃣</span>
-            <p class="carriage-label">Day 2</p>
+            <p class="carriage-label">Day</p>
+            <span class="carriage-icon">2</span>
           </div>
           <div class="coupler"></div>
           <div class="wheels">
@@ -70,8 +62,8 @@
           @click="router.push('/camp-guide#day3')"
         >
           <div class="carriage-body">
-            <span class="carriage-icon">3️⃣</span>
-            <p class="carriage-label">Day 3</p>
+            <p class="carriage-label">Day</p>
+            <span class="carriage-icon">3</span>
           </div>
           <div class="coupler"></div>
           <div class="wheels">
@@ -85,7 +77,7 @@
           @click="router.push('/camp-guide#our-sponsors')"
         >
           <div class="carriage-body">
-            <span class="carriage-icon">💛</span>
+            <span class="carriage-icon">Our</span>
             <p class="carriage-label">Sponsors</p>
           </div>
           <div class="coupler"></div>
@@ -116,6 +108,7 @@
 <script setup>
 import { useRouter } from "vue-router";
 import campHeader from "../assets/images/c.png";
+import pinkBackground from "../assets/images/pink-background.png"
 
 import Day1Section from "../c-section/Day1Section.vue";
 import Day2Section from "../c-section/Day2Section.vue";
@@ -131,7 +124,7 @@ const router = useRouter();
 
     min-height:100vh;
 
-    background:#cddecb;
+    background-image: url("../assets/images/pink-background.png");
 
     padding:110px 8%;
 
@@ -141,7 +134,7 @@ const router = useRouter();
 
 .page-title-image {
     display: block;
-    margin: 0 auto 40px;
+    margin: 0 auto 17px;
     max-width: 700px;
     width: 100%;
     height: auto;
@@ -156,9 +149,11 @@ const router = useRouter();
 
     color:#5E4D88;
 
-    font-size:1.1rem;
+    font-size:2.0rem;
 
-    margin-bottom:100px;
+    margin-bottom:160px;
+
+    font-family:"Luckiest Guy", cursive;
 
 }
 
@@ -270,114 +265,32 @@ const router = useRouter();
 
 /* ===== engine ===== */
 
-.engine{
-
-    position:relative;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    flex:0 0 auto;
-
+.engine {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  margin-right: -8px; /* pulls carriage closer to engine */
 }
 
-.engine-body{
-
-    width:150px;
-
-    height:110px;
-
-    background:linear-gradient(160deg, #402B6D, #573A99);
-
-    border-radius:18px 18px 10px 10px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    box-shadow:0 12px 20px rgba(0,0,0,.25), inset 0 4px 8px rgba(255,255,255,.15);
-
-    position:relative;
-
-}
-
-.engine-window{
-
-    width:60px;
-
-    height:44px;
-
-    background:#BEE3F0;
-
-    border-radius:10px;
-
-    border:4px solid white;
-
-    box-shadow:inset 0 4px 8px rgba(0,0,0,.15);
-
-}
-
-.engine-nose{
-
-    position:absolute;
-
-    left:-28px;
-
-    bottom:26px;
-
-    width:0;
-
-    height:0;
-
-    border-top:32px solid transparent;
-
-    border-bottom:32px solid transparent;
-
-    border-right:28px solid #402B6D;
-
-}
-
-.funnel{
-
-    position:absolute;
-
-    top:-26px;
-
-    left:24px;
-
-    width:20px;
-
-    height:30px;
-
-    background:#2C1D4D;
-
-    border-radius:4px 4px 0 0;
-
+.engine-img {
+  height: 160px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 32px; /* lifts image up so wheels align with carriage wheels */
 }
 
 /* ===== carriages ===== */
 
-.carriage{
-
-    position:relative;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    flex:0 0 auto;
-
-    cursor:pointer;
-
-    transition:transform .25s ease;
-
+.carriage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+  cursor: pointer;
+  transition: transform .25s ease;
+  margin-bottom: 30px; 
 }
 
 .carriage:hover{
@@ -416,14 +329,18 @@ const router = useRouter();
 
 }
 
-.day1-carriage .carriage-body{ background:linear-gradient(160deg, #FFD87A, #F0A825); }
-.day2-carriage .carriage-body{ background:linear-gradient(160deg, #8BD3F0, #4599C9); }
+.day1-carriage .carriage-body{ background:linear-gradient(20deg, #FFD87A, #F0A825); }
+.day2-carriage .carriage-body{ background:linear-gradient(100deg, #8BD3F0, #4599C9); }
 .day3-carriage .carriage-body{ background:linear-gradient(160deg, #FF9A8B, #E8654F); }
-.sponsors-carriage .carriage-body{ background:linear-gradient(160deg, #B29CF0, #7B5FCF); }
+.sponsors-carriage .carriage-body{ background:linear-gradient(200deg, #B29CF0, #7B5FCF); }
 
 .carriage-icon{
 
     font-size:1.7rem;
+
+    font-family:"Luckiest Guy", cursive;
+
+    color:white;
 
 }
 
@@ -433,7 +350,7 @@ const router = useRouter();
 
     color:white;
 
-    font-size:.9rem;
+    font-size:1.5rem;
 
     text-shadow:0 2px 4px rgba(0,0,0,.25);
 
@@ -491,26 +408,16 @@ const router = useRouter();
 
 /* ===== rail track ===== */
 
-.rail-track{
-
-    position:relative;
-
-    height:16px;
-
-    margin-top:-4px;
-
-    background:repeating-linear-gradient(
-        to right,
-        #8B6F47 0px,
-        #8B6F47 10px,
-        transparent 10px,
-        transparent 26px
-    );
-
-    border-top:4px solid #5E4A30;
-
-    border-bottom:4px solid #5E4A30;
-
+.rail-track {
+  height: 16px;
+  margin-top: -35px; 
+  background: repeating-linear-gradient(
+    to right,
+    #8B6F47 0px, #8B6F47 10px,
+    transparent 10px, transparent 26px
+  );
+  border-top: 4px solid #5E4A30;
+  border-bottom: 4px solid #5E4A30;
 }
 
 /* =========================
@@ -541,6 +448,8 @@ const router = useRouter();
 
   padding:0 20px;
 
+  gap: 4px;
+
 }
 
 .engine-body{ width:120px; height:90px; }
@@ -567,10 +476,7 @@ const router = useRouter();
   margin-bottom: 55px;
 }
 
-.engine-body{ width:100px; height:76px; }
-.engine-window{ width:40px; height:30px; }
-.engine-nose{ left:-22px; bottom:20px; border-top-width:24px; border-bottom-width:24px; border-right-width:22px; }
-.funnel{ height:22px; top:-20px; }
+.engine-img { height: 88px; }
 .carriage-body{ width:92px; height:72px; border-radius:14px; }
 .carriage-icon{ font-size:1.2rem; }
 .carriage-label{ font-size:.7rem; }

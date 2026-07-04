@@ -59,9 +59,10 @@ const emit = defineEmits(["toggle-sidebar"]);
 }
 
 .train-btn img {
-  height: 80px;
+  height: 40px;
   width: auto;
   animation: wiggle 0.5s ease-in-out infinite;
+  margin-left: 30px;
 }
 
 @keyframes wiggle {
