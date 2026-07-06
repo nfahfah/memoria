@@ -16,7 +16,7 @@
 
       <p class="subtitle">
         The journey begins as every memory ball mysteriously disappears from
-        Memoria...
+        Memoria 😱...
       </p>
 
     </div>
@@ -63,24 +63,49 @@
 const activities = [
 
 {
-    time: "8.00 AM",
+    time: "8.30 AM",
     title: "Registration",
-    venue: "NUS",
-    description: "Meet your OG, collect your camp items and begin your journey."
+    venue: "SFAH Auditiorium",
+    description: "Meet your OG, collect your camp essentials, and step into an adventure full of core memories!"
 },
 
 {
     time: "9.00 AM",
-    title: "Opening Ceremony",
-    venue: "LT",
-    description: "Welcome to Memoria and uncover the mystery."
+    title: "Opening",
+    venue: "SFAH Auditorium",
 },
 
 {
     time: "10.00 AM",
-    title: "Memories Gone Missing",
-    venue: "Around NUS",
-    description: "Work together to search for the missing memory balls."
+    title: "Memory Ball Designing",
+    venue: "SFAH Auditorium",
+    description: "Get to know your OG-mates and build your team identity by designing your very own memory ball!"
+},
+
+{
+    time: "11.00 AM",
+    title: "Intra-OG Games",
+    venue: "Around FASS",
+    description: "Compete within your OG in exciting challenges!"
+},
+
+{
+    time: "12.00 PM",
+    title: "Lunch",
+    venue: "Around FASS",
+},
+
+{
+    time: "2.00 PM",
+    title: "Zuhr",
+    venue: "SFAH Saffron",
+},
+
+{
+    time: "2.30 PM",
+    title: "CCA Performances",
+    venue: "SFAH Auditorium",
+    description: "performances by Silat, followed by Ilsa Tari and last but not least Dikir Barat!"
 },
 
 {
@@ -146,8 +171,6 @@ const activities = [
 }
 
 .subtitle{
-
-    max-width:650px;
 
     margin:auto;
 
