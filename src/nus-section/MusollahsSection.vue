@@ -1,6 +1,6 @@
 <template>
   <section
-    id="musollahs"
+    id="musollahs-masjids"
     class="musollahs-page"
   >
 

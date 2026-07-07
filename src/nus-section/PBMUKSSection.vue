@@ -1,6 +1,6 @@
 <template>
   <section
-    id="pbmuks"
+    id="pbmuks-adhocs"
     class="pbmuks-page"
   >
 
