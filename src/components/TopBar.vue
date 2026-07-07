@@ -12,14 +12,49 @@
       class="logo"
       src="../assets/images/memoria-logo.png"
       alt="Memoria Logo"
+      @click="handleLogoClick"
+      style="cursor: pointer;"
     />
 
   </header>
 </template>
 
 <script setup>
+import { useRoute, useRouter } from "vue-router";
+
 const emit = defineEmits(["toggle-sidebar"]);
 
+const route = useRoute();
+const router = useRouter();
+
+// maps each page's route to the id of its landing/top section
+const landingAnchors = {
+  "/precamp": "precamp",
+  "/camp-guide": "camp-guide-landing",
+  "/nus-guide": "nus-guide-landing",
+};
+
+function handleLogoClick() {
+  const path = route.path;
+
+  if (path === "/") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  const anchorId = landingAnchors[path];
+
+  if (anchorId) {
+    const target = document.getElementById(anchorId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+  }
+
+  // fallback for any other page (e.g. Important Contacts) — just go home
+  router.push("/");
+}
 </script>
 
 <style scoped>

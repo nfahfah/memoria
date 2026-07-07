@@ -1,5 +1,5 @@
 <template>
-  <section class="camp-page train-theme">
+  <section id="camp-guide-landing" class="camp-page train-theme">
 
     <img
       :src="campHeader"

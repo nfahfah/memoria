@@ -17,9 +17,11 @@
         >
           <span>{{ item.title }}</span>
 
-          <span v-if="item.children">
-            {{ openSection === item.title ? "▼" : "▶" }}
-          </span>
+          <span
+            v-if="item.children"
+            class="arrow-icon"
+            :class="{ 'arrow-open': openSection === item.title }"
+          ></span>
         </div>
 
         <ul
@@ -145,8 +147,6 @@ const menu = [
         color: "coral",
         route: "/nus-guide#musollahs-masjids"
         },
-        {
-        }
     ]
   },
   {
@@ -266,6 +266,34 @@ h2 {
     background:var(--primary-light);
 
     border-left:4px solid var(--primary);
+
+}
+
+/* CSS-drawn triangle arrow, replaces the old ▼/▶ text characters
+   so it never renders as a colorful emoji glyph on iOS/Android */
+.arrow-icon{
+
+    width:0;
+
+    height:0;
+
+    border-top:5px solid transparent;
+
+    border-bottom:5px solid transparent;
+
+    border-left:7px solid var(--primary, #402B6D);
+
+    display:inline-block;
+
+    flex-shrink:0;
+
+    transition:transform .2s ease;
+
+}
+
+.arrow-icon.arrow-open{
+
+    transform:rotate(90deg);
 
 }
 
