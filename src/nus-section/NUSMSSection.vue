@@ -1,6 +1,6 @@
 <template>
   <section
-    id="nusms"
+    id="nusms-adhocs"
     class="nusms-page"
   >
 
