@@ -18,8 +18,6 @@
 
     <div class="cards-grid">
 
-      
-
       <!-- Academic Calendar -->
       <div class="info-card">
         <h3>📅 Academic Calendar</h3>
@@ -155,7 +153,8 @@ const academicsHeader = null;
     color:#402B6D;
 
     font-size:3rem;
-    margin-top: 20px;
+
+    margin-top:20px;
 
     margin-bottom:10px;
 
@@ -410,6 +409,7 @@ const academicsHeader = null;
 
 .page-title {
   font-size: 2.2rem;
+  margin-top:20px;
 }
 
 .page-subtitle {
@@ -437,43 +437,81 @@ const academicsHeader = null;
 @media (max-width: 480px) {
 
 .academics-section {
-  padding: 60px 5%;
+  padding: 60px 6%;             /* slightly wider side padding, was 5% */
 }
 
 .page-title {
   font-size: 1.8rem;
+  margin-top:20px;
 }
 
 .page-subtitle {
-  font-size: 0.95rem;
-  margin-bottom: 32px;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+}
+
+.cards-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;                    /* was implicit 20px from tablet — tighter now */
+  max-width: 92%;               /* NEW — keeps cards from stretching edge-to-edge */
+  margin: 0 auto;               /* NEW — centers the narrower grid */
 }
 
 .info-card {
-  padding: 18px 18px;
-  border-radius: 16px;
+  padding: 14px 16px;           /* was 18px 18px — noticeably smaller */
+  border-radius: 14px;          /* was 16px */
 }
 
 .info-card h3 {
-  font-size: 1.1rem;
+  font-size: 0.95rem;           /* was 1.1rem */
+  margin-bottom: 8px;
 }
 
 .info-card p {
-  font-size: 0.92rem;
+  font-size: 0.82rem;           /* was 0.92rem */
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.path-tag {
+  font-size: 0.68rem;           /* was 0.78rem */
+  padding: 4px 10px;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  padding: 8px 12px;
+  font-size: 0.82rem;
+}
+
+.note {
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  margin-top: 10px;
+}
+
+.steps-list {
+  padding-left: 14px;
+  line-height: 1.5;
+  font-size: 0.82rem;
 }
 
 .rank-list {
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 .rank-list li {
-  font-size: 0.85rem;
-  padding: 8px 0;
+  font-size: 0.75rem;
+  padding: 6px 0;
 }
 
-.path-tag {
-  font-size: 0.78rem;
+.rank-list li::before {
+  width: 14px;
+  height: 14px;
+  font-size: 0.6rem;
+  top: -6px;
+  left: -6px;
 }
 
 }

@@ -65,8 +65,7 @@ function handleLogoClick() {
 
   width: 100%;
   height: 80px;
-
-  background: white;
+  background: rgba(210, 180, 200, 0.7);
 
   display: flex;
   justify-content: space-between;

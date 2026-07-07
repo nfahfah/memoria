@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="muda-mudi-ccas"
-    class="ccas-page"
-  >
+  <section id="muda-mudi-ccas" class="ccas-page">
 
     <img
       :src="ccasHeader"
@@ -16,72 +13,65 @@
       Malay/Muslim CCAs to get involved in beyond your major.
     </p>
 
-    <div class="cards-grid">
+    <h3 class="group-heading">Meet Our CCAS ✨</h3>
 
-      <div class="cca-card">
-        <h3>🥋 NUS Silat</h3>
-        
+    <div
+      class="carousel"
+      @touchstart="touchStart"
+      @touchend="touchEnd"
+    >
+
+      <button class="arrow left" @click="previous">
+        ‹
+      </button>
+
+      <div class="carousel-content">
+
+        <div class="counter">
+          {{ current + 1 }} / {{ cca.length }}
+        </div>
+
+        <img
+          :src="cca[current].image"
+          :alt="cca[current].name"
+          class="cca-image"
+        />
+
+        <h3 class="cca-title">
+          {{ cca[current].emoji }}
+          {{ cca[current].name }}
+        </h3>
+
+        <p class="cca-description">
+          {{ cca[current].description }}
+        </p>
+
         <a
-          href="https://www.instagram.com/nus.silat"
+          :href="cca[current].instagram"
           target="_blank"
           rel="noopener"
-          class="handle-tag"
+          class="instagram-btn"
         >
-          @nus.silat
+          📷 {{ cca[current].handle }}
         </a>
-        <p>
-          A Malay martial art that promotes discipline and strength through team spirit.
-        </p>
+
       </div>
 
-      <div class="cca-card">
-        <h3>🥁 NUS Dikir Barat</h3>
-        
-        <a
-          href="https://www.instagram.com/nusdikir"
-          target="_blank"
-          rel="noopener"
-          class="handle-tag"
-        >
-          @nusdikir
-        </a>
-        <p class="sub-label">Adisiswa & Nuswidya</p>
-        <p>
-          A traditional Malay art form blending music, poetry and choral singing.
-        </p>
-      </div>
+      <button class="arrow right" @click="next">
+        ›
+      </button>
 
-      <div class="cca-card">
-        <h3>💃 Ilsa Tari</h3>
-        
-        <a
-          href="https://www.instagram.com/nusilsatari"
-          target="_blank"
-          rel="noopener"
-          class="handle-tag"
-        >
-          @nusilsatari
-        </a>
-        <p>
-          Malay dance group that works with both traditional and contemporary dance.
-        </p>
-      </div>
+    </div>
 
-      <div class="cca-card">
-        <h3>📖 NUS Malay Studies Society</h3>
-        
-        <a
-          href="https://www.instagram.com/nusmalaystudiessociety"
-          target="_blank"
-          rel="noopener"
-          class="handle-tag"
-        >
-          @nusmalaystudiessociety
-        </a>
-        <p>
-          Fostering inclusive, accessible intellectual practice and heritage appreciation via dialogue and collaboration.
-        </p>
-      </div>
+    <div class="dots">
+
+      <span
+        v-for="(item,index) in cca"
+        :key="item.name"
+        class="dot"
+        :class="{active:index===current}"
+        @click="current=index"
+      ></span>
 
     </div>
 
@@ -89,22 +79,95 @@
 </template>
 
 <script setup>
-// If you have a title graphic like the other pages (a.png, c.png, pc.png),
-// drop it in assets/images and uncomment the import below.
-// import ccasHeader from "../assets/images/ccas.png";
+
+// import nusmsHeader from "../assets/images/nusms.png";
 const ccasHeader = null;
+
+import { ref } from "vue";
+
+import dikirImg from "../assets/images/ccas/dikir.png";
+import ilsaImg from "../assets/images/ccas/ilsa.png";
+import silatImg from "../assets/images/ccas/silat.png";
+import mssImg from "../assets/images/ccas/mss.png";
+
+const cca = [
+
+{
+name:"Dikir Barat",
+emoji:"🚂",
+image:dikirImg,
+handle:"@nusdikir",
+instagram:"https://www.instagram.com/nusdikir",
+description:"Dikir Barat."
+},
+
+{
+name:"Silat",
+emoji:"🌏",
+image:silatImg,
+handle:"@nussilat",
+instagram:"https://www.instagram.com/nussilat",
+description:"Silat."
+},
+
+{
+name:"Ilsa Tari",
+emoji:"⚽",
+image:ilsaImg,
+handle:"@nusilsatari",
+instagram:"https://www.instagram.com/nusilsatari",
+description:"Sports outreach to instill worthwhile values and empower youth."
+},
+
+{
+name:"MSS",
+emoji:"🌟",
+image:mssImg,
+handle:"@nusmmss",
+instagram:"https://www.instagram.com/nusmss",
+description:"Youth outreach adhoc fostering holistic development."
+},
+
+];
+
+const current = ref(0);
+
+function next(){
+current.value=(current.value+1)%adhocs.length;
+}
+
+function previous(){
+current.value=(current.value-1+adhocs.length)%adhocs.length;
+}
+
+let startX=0;
+
+function touchStart(e){
+startX=e.changedTouches[0].clientX;
+}
+
+function touchEnd(e){
+
+const diff=e.changedTouches[0].clientX-startX;
+
+if(diff>60){
+previous();
+}
+
+if(diff<-60){
+next();
+}
+
+}
 </script>
 
 <style scoped>
 
-.ccas-page{
+.nusms-page{
 
     min-height:100vh;
-
     background:#fff;
-
     padding:110px 8%;
-
     box-sizing:border-box;
 
 }
@@ -112,17 +175,11 @@ const ccasHeader = null;
 .page-title-image{
 
     display:block;
-
     margin:0 auto 20px;
-
     max-width:700px;
-
     width:100%;
-
     height:140px;
-
     object-fit:cover;
-
     object-position:center;
 
 }
@@ -130,13 +187,9 @@ const ccasHeader = null;
 .page-title{
 
     text-align:center;
-
     font-family:"Luckiest Guy", cursive;
-
     color:#402B6D;
-
     font-size:3rem;
-
     margin-bottom:10px;
 
 }
@@ -144,64 +197,151 @@ const ccasHeader = null;
 .page-subtitle{
 
     text-align:center;
-
     color:#5E4D88;
-
     font-size:1.1rem;
-
-    margin-bottom:60px;
-
-}
-
-.cards-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(2, 1fr);
-
-    gap:28px;
-
-    max-width:1000px;
-
-    margin:0 auto;
+    max-width:650px;
+    margin:0 auto 26px;
 
 }
 
-.cca-card{
+.socials-wrap{
 
-    background:#FFF9E8;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
 
-    border-radius:20px;
+}
 
-    padding:28px 30px;
+.social-tag{
 
-    box-shadow:var(--shadow, 0 8px 20px rgba(0,0,0,.08));
-
+    background:#402B6D;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:10px 20px;
+    border-radius:999px;
     transition:.25s;
 
 }
 
-.cca-card:hover{
+.social-tag:hover{
 
-    transform:translateY(-4px);
+    background:#573A99;
+    transform:translateY(-3px);
 
 }
 
-.cca-card h3{
+.group-heading{
 
     font-family:"Luckiest Guy", cursive;
-
     color:#402B6D;
-
-    font-size:1.25rem;
-
-    margin-bottom:12px;
-
-    letter-spacing:.5px;
+    text-align:center;
+    font-size:1.7rem;
+    margin-bottom:28px;
 
 }
 
-.handle-tag{
+.carousel{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    max-width:1000px;
+    margin:0 auto;
+
+}
+
+.arrow{
+
+    width:56px;
+    height:56px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#402B6D;
+    color:white;
+
+    font-size:2rem;
+    cursor:pointer;
+
+    transition:.25s;
+
+    flex-shrink:0;
+
+}
+
+.arrow:hover{
+
+    background:#573A99;
+    transform:scale(1.08);
+
+}
+
+.carousel-content{
+
+    background:#FFF9E8;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    width:100%;
+    max-width:420px;
+
+}
+
+.counter{
+
+    color:#6C4AB6;
+    font-weight:bold;
+    margin-bottom:18px;
+
+}
+
+.adhoc-image{
+
+    width:100%;
+    max-width:300px;
+
+    aspect-ratio:9/16;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    margin-bottom:22px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+
+}
+
+.adhoc-title{
+
+    font-family:"Luckiest Guy", cursive;
+    color:#402B6D;
+    font-size:1.5rem;
+    margin-bottom:14px;
+
+}
+
+.adhoc-description{
+
+    color:#555;
+    line-height:1.6;
+    margin-bottom:24px;
+    min-height:55px;
+
+}
+
+.instagram-btn{
 
     display:inline-block;
 
@@ -209,119 +349,184 @@ const ccasHeader = null;
 
     color:#6C4AB6;
 
-    font-size:.85rem;
+    text-decoration:none;
 
     font-weight:bold;
 
-    padding:6px 14px;
+    padding:10px 20px;
 
     border-radius:999px;
 
-    margin-bottom:14px;
-
-    text-decoration:none;
-
-    transition:.2s;
+    transition:.25s;
 
 }
 
-.handle-tag:hover{
+.instagram-btn:hover{
 
     background:#402B6D;
-
     color:white;
 
 }
 
-.sub-label{
+.dots{
 
-    color:#5E4D88;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:30px;
+
+}
+
+.dot{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#D8C9F4;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.dot.active{
+
+    background:#402B6D;
+    transform:scale(1.25);
+
+}
+
+/* =========================
+Tablet
+========================= */
+
+@media (max-width:768px){
+
+.nusms-page{
+
+    padding:80px 6%;
+
+}
+
+.page-title{
+
+    font-size:2.2rem;
+
+}
+
+.carousel{
+
+    gap:15px;
+
+}
+
+.carousel-content{
+
+    padding:22px;
+
+}
+
+.adhoc-image{
+
+    max-width:240px;
+
+}
+
+.arrow{
+
+    width:46px;
+    height:46px;
+    font-size:1.6rem;
+
+}
+
+}
+
+/* =========================
+Mobile
+========================= */
+
+@media (max-width:480px){
+
+.nusms-page{
+
+    padding:60px 5%;
+
+}
+
+.page-title{
+
+    font-size:1.8rem;
+
+}
+
+.page-subtitle{
+
+    font-size:.95rem;
+
+}
+
+.carousel{
+
+    gap:8px;
+
+}
+
+.carousel-content{
+
+    padding:18px;
+    max-width:100%;
+
+}
+
+.adhoc-image{
+
+    max-width:220px;
+
+}
+
+.arrow{
+
+    width:40px;
+    height:40px;
+    font-size:1.3rem;
+
+}
+
+.adhoc-title{
+
+    font-size:1.2rem;
+
+}
+
+.adhoc-description{
+
+    font-size:.9rem;
+    min-height:auto;
+
+}
+
+.social-tag{
+
+    font-size:.82rem;
+    padding:8px 16px;
+
+}
+
+.instagram-btn{
 
     font-size:.85rem;
 
-    font-weight:600;
-
-    margin-bottom:8px;
-
 }
 
-.cca-card p{
+.dot{
 
-    color:#444;
+    width:10px;
+    height:10px;
 
-    line-height:1.7;
-
-    font-size:1rem;
-
-    margin-bottom:0;
-
-}
-
-/* =========================
-   Tablet
-========================= */
-@media (max-width: 768px) {
-
-.ccas-page {
-  padding: 80px 6%;
-}
-
-.page-title-image {
-  height: 100px;
-}
-
-.page-title {
-  font-size: 2.2rem;
-}
-
-.page-subtitle {
-  margin-bottom: 40px;
-}
-
-.cards-grid {
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-.cca-card {
-  padding: 22px 22px;
-}
-
-}
-
-/* =========================
-   Mobile Phones
-========================= */
-@media (max-width: 480px) {
-
-.ccas-page {
-  padding: 60px 5%;
-}
-
-.page-title {
-  font-size: 1.8rem;
-}
-
-.page-subtitle {
-  font-size: 0.95rem;
-  margin-bottom: 32px;
-}
-
-.cca-card {
-  padding: 18px 18px;
-  border-radius: 16px;
-}
-
-.cca-card h3 {
-  font-size: 1.1rem;
-}
-
-.cca-card p {
-  font-size: 0.92rem;
-}
-
-.handle-tag {
-  font-size: 0.78rem;
 }
 
 }
