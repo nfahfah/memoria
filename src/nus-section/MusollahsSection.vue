@@ -39,21 +39,33 @@
       <div class="info-card">
         <h3>🔬 Science</h3>
         <p class="path-tag">Faculty of Science</p>
+        <div class="stall-tags">
+          <span class="stall-tag">S5</span>
+          <span class="stall-tag">MD6</span>
+          <span class="stall-tag">MD3</span>
+          <span class="stall-tag">Med-Sci Library</span>
+          <span class="stall-tag">S1A</span>
+          <span class="stall-tag">S6</span>
+        </div>
       </div>
 
       <div class="info-card">
         <h3>🏙️ UTown</h3>
         <p class="path-tag">ERC · SRC</p>
+        <div class="stall-tags">
+          <span class="stall-tag">SRC</span>
+          <span class="stall-tag">ERC</span>
+        </div>
       </div>
 
       <div class="info-card">
         <h3>💻 Computing / Biz</h3>
         <p class="path-tag">Design & Engineering</p>
         <div class="stall-tags">
-          <span class="stall-tag">EA</span>
-          <span class="stall-tag">E3</span>
-          <span class="stall-tag">E5</span>
-          <span class="stall-tag">SDE3</span>
+          <span class="stall-tag">COM1 (A/Main Foyer)</span>
+          <span class="stall-tag">COM1 (B/Behind Dean's Office)</span>
+          <span class="stall-tag">BIZ2</span>
+          <span class="stall-tag">HSSML</span>
         </div>
       </div>
 
@@ -65,38 +77,22 @@
           <span class="stall-tag">AS4</span>
           <span class="stall-tag">AS6</span>
           <span class="stall-tag">Central Library</span>
-          <span class="stall-tag">BIZ2</span>
-          <span class="stall-tag">COM1</span>
-          <span class="stall-tag">HSSML</span>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <h3>🩺 Medicine / Nursing</h3>
-        <p class="path-tag">Medicine and Science</p>
-        <div class="stall-tags">
-          <span class="stall-tag">MD3</span>
-          <span class="stall-tag">MD6</span>
-          <span class="stall-tag">Medsci Library</span>
-          <span class="stall-tag">S1A</span>
-          <span class="stall-tag">S5</span>
         </div>
       </div>
 
       <div class="info-card">
         <h3>🏫 Others</h3>
-        <p class="path-tag">MPSH1 · UHall · Bukit Timah Campus</p>
+        <p class="path-tag">MPSH1 · UHall</p>
         <div class="stall-tags">
           <span class="stall-tag">MPSH1</span>
           <span class="stall-tag">UHall</span>
-          <span class="stall-tag">Bukit Timah Campus Blk B</span>
         </div>
       </div>
 
     </div>
 
     <!-- Masjids -->
-    <h3 class="group-heading">🕌 Nearby Masjids</h3>
+    <h3 class="group-heading">🕌 Nearby Mosques</h3>
     <p class="section-note">
       Tap the postal code to copy it — paste straight into Grab/Google Maps.
     </p>
@@ -119,8 +115,7 @@
           <span class="copy-hint">{{ copiedCode === masjid.postal ? 'Copied!' : 'Tap to copy' }}</span>
         </button>
       </div>
-
-    </div>
+  </div>
 
   </section>
 </template>
@@ -135,16 +130,17 @@ const musollahsHeader = null;
 
 // PLACEHOLDER DATA — swap in the real masjid list + postal codes
 const masjids = [
-  { name: "Masjid Name 1", address: "Address line goes here", postal: "123456" },
-  { name: "Masjid Name 2", address: "Address line goes here", postal: "234567" },
-  { name: "Masjid Name 3", address: "Address line goes here", postal: "345678" },
+  { name: "Ahmad Mosque", address: "2 Lor Sarhad, Singapore 119173", postal: "119173" },
+  { name: "Tentera Di Raja Mosque", address: "81 Clementi Road, Singapore 129797", postal: "129797" },
+  { name: "Darussalam Mosque", address: "3002 Commonwealth Ave West, Singapore 129579", postal: "129579" },
+  { name: "Hussain Sulaiman Mosque", address: "394 Pasir Panjang Rd, Singapore 118730", postal: "118730" },
 ];
 
 const copiedCode = ref(null);
 
 async function copyPostal(code) {
   try {
-    await navigator.clipboard.writeText(code);
+    await navigator.clipboard.writeText(`S${code}`);
     copiedCode.value = code;
     setTimeout(() => {
       if (copiedCode.value === code) copiedCode.value = null;

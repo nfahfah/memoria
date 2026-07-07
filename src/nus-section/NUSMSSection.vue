@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="nusms-adhocs"
-    class="nusms-page"
-  >
+  <section id="nusms-adhocs" class="nusms-page">
 
     <img
       :src="nusmsHeader"
@@ -17,105 +14,84 @@
     </p>
 
     <div class="socials-wrap">
-      <a href="https://www.instagram.com/nusms" target="_blank" rel="noopener" class="social-tag">
+      <a
+        href="https://www.instagram.com/nusms"
+        target="_blank"
+        rel="noopener"
+        class="social-tag"
+      >
         📷 @nusms
       </a>
-      <a href="https://t.me/nusms" target="_blank" rel="noopener" class="social-tag">
+
+      <a
+        href="https://t.me/nusms"
+        target="_blank"
+        rel="noopener"
+        class="social-tag"
+      >
         ✈️ t.me/nusms
       </a>
     </div>
 
-    <h3 class="group-heading">Committees</h3>
+    <h3 class="group-heading">Meet Our Adhocs ✨</h3>
 
-    <div class="cards-grid">
+    <div
+      class="carousel"
+      @touchstart="touchStart"
+      @touchend="touchEnd"
+    >
 
-      <div class="cca-card">
-        <h3>🚂 FOC</h3>
-        <a href="https://www.instagram.com/nusms.pbmuks.foc" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.pbmuks.foc
+      <button class="arrow left" @click="previous">
+        ‹
+      </button>
+
+      <div class="carousel-content">
+
+        <div class="counter">
+          {{ current + 1 }} / {{ adhocs.length }}
+        </div>
+
+        <img
+          :src="adhocs[current].image"
+          :alt="adhocs[current].name"
+          class="adhoc-image"
+        />
+
+        <h3 class="adhoc-title">
+          {{ adhocs[current].emoji }}
+          {{ adhocs[current].name }}
+        </h3>
+
+        <p class="adhoc-description">
+          {{ adhocs[current].description }}
+        </p>
+
+        <a
+          :href="adhocs[current].instagram"
+          target="_blank"
+          rel="noopener"
+          class="instagram-btn"
+        >
+          📷 {{ adhocs[current].handle }}
         </a>
-        <p>Malay/Muslim freshman orientation camp.</p>
+
       </div>
 
-      <div class="cca-card">
-        <h3>🌏 OCIP</h3>
-        <a href="https://www.instagram.com/nusms.ocip" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.ocip
-        </a>
-        <p>Overseas Community Involvement Project.</p>
-      </div>
+      <button class="arrow right" @click="next">
+        ›
+      </button>
 
-      <div class="cca-card">
-        <h3>⚽ Rihlah</h3>
-        <a href="https://www.instagram.com/nusms.rihlah" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.rihlah
-        </a>
-        <p>Sports outreach to instill worthwhile values and empower youth.</p>
-      </div>
+    </div>
 
-      <div class="cca-card">
-        <h3>🌟 Valour</h3>
-        <a href="https://www.instagram.com/nusms.valour" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.valour
-        </a>
-        <p>Youth outreach adhoc committed to fostering the holistic development of youths.</p>
-      </div>
+    <div class="dots">
 
-      <div class="cca-card">
-        <h3>🕋 IAS</h3>
-        <a href="https://www.instagram.com/nusms.ias" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.ias
-        </a>
-        <p>A safe space for everyone to learn more about Islam together.</p>
-      </div>
-
-      <div class="cca-card">
-        <h3>📗 QTIO</h3>
-        <a href="https://www.instagram.com/nusms.qtio" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.qtio
-        </a>
-        <p>Build a community with love for the Qur'an.</p>
-      </div>
-
-      <div class="cca-card">
-        <h3>🤝 beKhayr</h3>
-        <a href="https://www.instagram.com/nusms.bekhayr" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.bekhayr
-        </a>
-        <p>Local humanitarian project aiming to uplift underprivileged communities.</p>
-      </div>
-
-      <div class="cca-card">
-        <h3>🏔️ FitDeen</h3>
-        <a href="https://www.instagram.com/nusms.fitdeen" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.fitdeen
-        </a>
-        <p>Bridging spirituality with adventure and exploration.</p>
-      </div>
-
-      <div class="cca-card">
-        <h3>☪️ PBUH</h3>
-        <a href="https://www.instagram.com/nusms.pbuh" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.pbuh
-        </a>
-        <p>Increase knowledge about our Prophet Muhammad s.a.w. in various aspects.</p>
-      </div>
-
-      <div class="cca-card">
-        <h3>🌸 Nisaa</h3>
-        <a href="https://www.instagram.com/nusms.nisaa" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.nisaa
-        </a>
-        <p>For Ladies, By Ladies: strengthen & embrace identity as Muslim Women.</p>
-      </div>
-
-      <div class="cca-card">
-        <h3>🕌 Musollah</h3>
-        <a href="https://www.instagram.com/nusms.musollah" target="_blank" rel="noopener" class="handle-tag">
-          @nusms.musollah
-        </a>
-        <p>Maintain the prayer spaces in NUS.</p>
-      </div>
+      <span
+        v-for="(item,index) in adhocs"
+        :key="item.name"
+        class="dot"
+        :class="{active:index===current}"
+        @click="current=index"
+      ></span>
 
     </div>
 
@@ -123,10 +99,156 @@
 </template>
 
 <script setup>
-// If you have a title graphic like the other pages (a.png, c.png, pc.png),
-// drop it in assets/images and uncomment the import below.
+
 // import nusmsHeader from "../assets/images/nusms.png";
 const nusmsHeader = null;
+
+import { ref } from "vue";
+
+import focImg from "../assets/images/adhocs/foc.png";
+import ocipImg from "../assets/images/adhocs/ocip.png";
+import rihlahImg from "../assets/images/adhocs/rihlah.png";
+import valourImg from "../assets/images/adhocs/valour.png";
+import iasImg from "../assets/images/adhocs/ias.png";
+import qtioImg from "../assets/images/adhocs/qtio.png";
+import bekhayrImg from "../assets/images/adhocs/bekhayr.png";
+import fitdeenImg from "../assets/images/adhocs/fitdeen.png";
+import pbuhImg from "../assets/images/adhocs/pbuh.png";
+import nisaaImg from "../assets/images/adhocs/nisaa.png";
+import musollahImg from "../assets/images/adhocs/musollah.png";
+
+const adhocs = [
+
+{
+name:"FOC",
+emoji:"🚂",
+image:focImg,
+handle:"@nusms.pbmuks.foc",
+instagram:"https://www.instagram.com/nusms.pbmuks.foc",
+description:"Malay/Muslim freshman orientation camp."
+},
+
+{
+name:"OCIP",
+emoji:"🌏",
+image:ocipImg,
+handle:"@nusms.ocip",
+instagram:"https://www.instagram.com/nusms.ocip",
+description:"Overseas Community Involvement Project."
+},
+
+{
+name:"Rihlah",
+emoji:"⚽",
+image:rihlahImg,
+handle:"@nusms.rihlah",
+instagram:"https://www.instagram.com/nusms.rihlah",
+description:"Sports outreach to instill worthwhile values and empower youth."
+},
+
+{
+name:"Valour",
+emoji:"🌟",
+image:valourImg,
+handle:"@nusms.valour",
+instagram:"https://www.instagram.com/nusms.valour",
+description:"Youth outreach adhoc fostering holistic development."
+},
+
+{
+name:"IAS",
+emoji:"🕋",
+image:iasImg,
+handle:"@nusms.ias",
+instagram:"https://www.instagram.com/nusms.ias",
+description:"A safe space for everyone to learn more about Islam."
+},
+
+{
+name:"QTIO",
+emoji:"📗",
+image:qtioImg,
+handle:"@nusms.qtio",
+instagram:"https://www.instagram.com/nusms.qtio",
+description:"Building a community that loves the Qur'an."
+},
+
+{
+name:"beKhayr",
+emoji:"🤝",
+image:bekhayrImg,
+handle:"@nusms.bekhayr",
+instagram:"https://www.instagram.com/nusms.bekhayr",
+description:"Local humanitarian project serving underprivileged communities."
+},
+
+{
+name:"FitDeen",
+emoji:"🏔️",
+image:fitdeenImg,
+handle:"@nusms.fitdeen",
+instagram:"https://www.instagram.com/nusms.fitdeen",
+description:"Bridging spirituality with adventure and exploration."
+},
+
+{
+name:"PBUH",
+emoji:"☪️",
+image:pbuhImg,
+handle:"@nusms.pbuh",
+instagram:"https://www.instagram.com/nusms.pbuh",
+description:"Learning about the life and teachings of Prophet Muhammad ﷺ."
+},
+
+{
+name:"Nisaa",
+emoji:"🌸",
+image:nisaaImg,
+handle:"@nusms.nisaa",
+instagram:"https://www.instagram.com/nusms.nisaa",
+description:"For Ladies, By Ladies."
+},
+
+{
+name:"Musollah",
+emoji:"🕌",
+image:musollahImg,
+handle:"@nusms.musollah",
+instagram:"https://www.instagram.com/nusms.musollah",
+description:"Maintaining and caring for prayer spaces across NUS."
+}
+
+];
+
+const current = ref(0);
+
+function next(){
+current.value=(current.value+1)%adhocs.length;
+}
+
+function previous(){
+current.value=(current.value-1+adhocs.length)%adhocs.length;
+}
+
+let startX=0;
+
+function touchStart(e){
+startX=e.changedTouches[0].clientX;
+}
+
+function touchEnd(e){
+
+const diff=e.changedTouches[0].clientX-startX;
+
+if(diff>60){
+previous();
+}
+
+if(diff<-60){
+next();
+}
+
+}
 </script>
 
 <style scoped>
@@ -134,11 +256,8 @@ const nusmsHeader = null;
 .nusms-page{
 
     min-height:100vh;
-
     background:#fff;
-
     padding:110px 8%;
-
     box-sizing:border-box;
 
 }
@@ -146,17 +265,11 @@ const nusmsHeader = null;
 .page-title-image{
 
     display:block;
-
     margin:0 auto 20px;
-
     max-width:700px;
-
     width:100%;
-
     height:140px;
-
     object-fit:cover;
-
     object-position:center;
 
 }
@@ -164,13 +277,9 @@ const nusmsHeader = null;
 .page-title{
 
     text-align:center;
-
     font-family:"Luckiest Guy", cursive;
-
     color:#402B6D;
-
     font-size:3rem;
-
     margin-bottom:10px;
 
 }
@@ -178,63 +287,38 @@ const nusmsHeader = null;
 .page-subtitle{
 
     text-align:center;
-
     color:#5E4D88;
-
     font-size:1.1rem;
-
-    margin-bottom:26px;
-
     max-width:650px;
-
-    margin-left:auto;
-
-    margin-right:auto;
+    margin:0 auto 26px;
 
 }
 
 .socials-wrap{
 
     display:flex;
-
     justify-content:center;
-
     gap:14px;
-
-    margin-bottom:50px;
-
     flex-wrap:wrap;
+    margin-bottom:50px;
 
 }
 
 .social-tag{
 
-    display:inline-block;
-
     background:#402B6D;
-
     color:white;
-
     text-decoration:none;
-
     font-weight:bold;
-
-    font-size:.9rem;
-
     padding:10px 20px;
-
     border-radius:999px;
-
     transition:.25s;
-
-    box-shadow:0 8px 20px rgba(64,43,109,.2);
 
 }
 
 .social-tag:hover{
 
     background:#573A99;
-
     transform:translateY(-3px);
 
 }
@@ -242,68 +326,112 @@ const nusmsHeader = null;
 .group-heading{
 
     font-family:"Luckiest Guy", cursive;
-
     color:#402B6D;
-
-    font-size:1.6rem;
-
-    max-width:1000px;
-
-    margin:0 auto 24px;
-
-    letter-spacing:.5px;
+    text-align:center;
+    font-size:1.7rem;
+    margin-bottom:28px;
 
 }
 
-.cards-grid{
+.carousel{
 
-    display:grid;
-
-    grid-template-columns:repeat(3, 1fr);
-
-    gap:24px;
-
-    max-width:1100px;
-
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    max-width:1000px;
     margin:0 auto;
 
 }
 
-.cca-card{
+.arrow{
 
-    background:#FFF9E8;
+    width:56px;
+    height:56px;
 
-    border-radius:20px;
+    border:none;
+    border-radius:50%;
 
-    padding:26px 26px;
+    background:#402B6D;
+    color:white;
 
-    box-shadow:var(--shadow, 0 8px 20px rgba(0,0,0,.08));
+    font-size:2rem;
+    cursor:pointer;
 
     transition:.25s;
 
-}
-
-.cca-card:hover{
-
-    transform:translateY(-4px);
+    flex-shrink:0;
 
 }
 
-.cca-card h3{
+.arrow:hover{
+
+    background:#573A99;
+    transform:scale(1.08);
+
+}
+
+.carousel-content{
+
+    background:#FFF9E8;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    width:100%;
+    max-width:420px;
+
+}
+
+.counter{
+
+    color:#6C4AB6;
+    font-weight:bold;
+    margin-bottom:18px;
+
+}
+
+.adhoc-image{
+
+    width:100%;
+    max-width:300px;
+
+    aspect-ratio:9/16;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    margin-bottom:22px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+
+}
+
+.adhoc-title{
 
     font-family:"Luckiest Guy", cursive;
-
     color:#402B6D;
-
-    font-size:1.15rem;
-
-    margin-bottom:12px;
-
-    letter-spacing:.5px;
+    font-size:1.5rem;
+    margin-bottom:14px;
 
 }
 
-.handle-tag{
+.adhoc-description{
+
+    color:#555;
+    line-height:1.6;
+    margin-bottom:24px;
+    min-height:55px;
+
+}
+
+.instagram-btn{
 
     display:inline-block;
 
@@ -311,125 +439,184 @@ const nusmsHeader = null;
 
     color:#6C4AB6;
 
-    font-size:.8rem;
+    text-decoration:none;
 
     font-weight:bold;
 
-    padding:6px 14px;
+    padding:10px 20px;
 
     border-radius:999px;
 
-    margin-bottom:14px;
-
-    text-decoration:none;
-
-    transition:.2s;
+    transition:.25s;
 
 }
 
-.handle-tag:hover{
+.instagram-btn:hover{
 
     background:#402B6D;
-
     color:white;
 
 }
 
-.cca-card p{
+.dots{
 
-    color:#444;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:30px;
 
-    line-height:1.6;
+}
 
-    font-size:.92rem;
+.dot{
 
-    margin-bottom:0;
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#D8C9F4;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.dot.active{
+
+    background:#402B6D;
+    transform:scale(1.25);
 
 }
 
 /* =========================
-   Tablet
+Tablet
 ========================= */
-@media (max-width: 768px) {
 
-.nusms-page {
-  padding: 80px 6%;
+@media (max-width:768px){
+
+.nusms-page{
+
+    padding:80px 6%;
+
 }
 
-.page-title-image {
-  height: 100px;
+.page-title{
+
+    font-size:2.2rem;
+
 }
 
-.page-title {
-  font-size: 2.2rem;
+.carousel{
+
+    gap:15px;
+
 }
 
-.page-subtitle {
-  margin-bottom: 20px;
+.carousel-content{
+
+    padding:22px;
+
 }
 
-.socials-wrap {
-  margin-bottom: 40px;
+.adhoc-image{
+
+    max-width:240px;
+
 }
 
-.group-heading {
-  font-size: 1.35rem;
-}
+.arrow{
 
-.cards-grid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
+    width:46px;
+    height:46px;
+    font-size:1.6rem;
 
-.cca-card {
-  padding: 20px 20px;
 }
 
 }
 
 /* =========================
-   Mobile Phones
+Mobile
 ========================= */
-@media (max-width: 480px) {
 
-.nusms-page {
-  padding: 60px 5%;
+@media (max-width:480px){
+
+.nusms-page{
+
+    padding:60px 5%;
+
 }
 
-.page-title {
-  font-size: 1.8rem;
+.page-title{
+
+    font-size:1.8rem;
+
 }
 
-.page-subtitle {
-  font-size: 0.95rem;
-  margin-bottom: 16px;
+.page-subtitle{
+
+    font-size:.95rem;
+
 }
 
-.social-tag {
-  font-size: .82rem;
-  padding: 8px 16px;
+.carousel{
+
+    gap:8px;
+
 }
 
-.group-heading {
-  font-size: 1.2rem;
+.carousel-content{
+
+    padding:18px;
+    max-width:100%;
+
 }
 
-.cards-grid {
-  grid-template-columns: 1fr;
-  gap: 14px;
+.adhoc-image{
+
+    max-width:220px;
+
 }
 
-.cca-card {
-  padding: 18px 18px;
-  border-radius: 16px;
+.arrow{
+
+    width:40px;
+    height:40px;
+    font-size:1.3rem;
+
 }
 
-.cca-card h3 {
-  font-size: 1.05rem;
+.adhoc-title{
+
+    font-size:1.2rem;
+
 }
 
-.cca-card p {
-  font-size: 0.88rem;
+.adhoc-description{
+
+    font-size:.9rem;
+    min-height:auto;
+
+}
+
+.social-tag{
+
+    font-size:.82rem;
+    padding:8px 16px;
+
+}
+
+.instagram-btn{
+
+    font-size:.85rem;
+
+}
+
+.dot{
+
+    width:10px;
+    height:10px;
+
 }
 
 }

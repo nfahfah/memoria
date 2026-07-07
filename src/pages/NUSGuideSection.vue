@@ -264,6 +264,7 @@ function scrollToSection(id) {
 
 .nus-guide-page {
   padding: 80px 6%;
+  overflow-x: hidden;
 }
 
 .page-title-text {
@@ -276,32 +277,34 @@ function scrollToSection(id) {
 
 .stars-wrap{
 
-  height:520px;
+  height:580px;
 
-  max-width:600px;
+  max-width:100%;
 
   margin: -70px auto 0;
+
+  overflow:visible;
 
 }
 
 .centerpiece{
 
-  width:320px;
+  width:260px;
 
 }
 
 .star{
 
-  width:150px;
+  width:170px;
 
 }
 
-.star-1{ top:12%; left:16%; }
-.star-2{ top:8%;  left:56%; }
-.star-3{ top:42%; left:74%; }
+.star-1{ top:6%;  left:2%;  }
+.star-2{ top:2%;  left:58%; }
+.star-3{ top:40%; left:66%; }
 .star-4{ top:76%; left:58%; }
-.star-5{ top:78%; left:14%; }
-.star-6{ top:42%; left:0%;  }
+.star-5{ top:78%; left:4%;  }
+.star-6{ top:40%; left:2%;  }
 
 }
 
@@ -312,6 +315,7 @@ function scrollToSection(id) {
 
 .nus-guide-page {
   padding: 60px 5%;
+  overflow-x: hidden;
 }
 
 .page-title-image {
@@ -331,9 +335,9 @@ function scrollToSection(id) {
 
 .stars-wrap{
 
-  height:430px;
+  height:500px;
 
-  max-width:380px;
+  max-width:100%;
 
   margin:-10px auto 0;
 
@@ -341,22 +345,22 @@ function scrollToSection(id) {
 
 .centerpiece{
 
-  width:230px;
+  width:200px;
 
 }
 
 .star{
 
-  width:112px;
+  width:135px;
 
 }
 
-.star-1{ top:16%; left:8%; }   /* nudged down from top:10% so ACADS clears the subtitle */
-.star-2{ top:12%; left:56%; }  /* nudged down from top:6% so NUSMS clears the subtitle */
-.star-3{ top:42%; left:78%; }
-.star-4{ top:78%; left:56%; }
-.star-5{ top:80%; left:8%; }
-.star-6{ top:42%; left:-4%; }
+.star-1{ top:12%; left:0%;  }
+.star-2{ top:8%;  left:58%; }
+.star-3{ top:40%; left:64%; }
+.star-4{ top:80%; left:58%; }
+.star-5{ top:82%; left:2%;  }
+.star-6{ top:40%; left:0%;  }
 
 }
 
