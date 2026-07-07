@@ -117,12 +117,12 @@ function scrollToTop() {
 const activities = [
   {
     time: "8.30 AM",
-    title: "Checkout for Overnighters & Reporting Time for Non-Overnight",
+    title: "Checkout for Overnighters",
     venue: "PGP Foyer"
   },
   {
-    time: "8.45 AM",
-    title: "Breakfast",
+    time: "9.00 AM",
+    title: "Reporting Time for Non-Overnighters & Breakfast",
     venue: "UTown"
   },
   {
