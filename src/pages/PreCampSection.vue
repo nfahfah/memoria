@@ -254,6 +254,55 @@
         animation-delay:2.4s;
     
     }
+
+ @media (max-width: 480px) {
+
+.memory-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(2, 200px);
+
+    justify-content:center;
+
+    gap:16px;
+
+    margin-top:30px;
+
+}
+
+.memory-item.purple,
+.memory-item.blue,
+.memory-item.pink{
+
+    width:200px;
+
+}
+
+/* purple spans both columns but stays centered at its own fixed width, not stretched */
+.memory-item.purple{
+
+    grid-column:1 / span 2;
+
+    justify-self:center;
+
+}
+
+.memory-item.blue{
+
+    grid-column:1;
+
+}
+
+.memory-item.pink{
+
+    grid-column:2;
+
+}
+
+}
+
+
     
     
     </style>

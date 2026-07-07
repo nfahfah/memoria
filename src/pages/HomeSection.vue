@@ -58,7 +58,8 @@
     
     .home{
     
-        min-height:85vh;
+        min-height:100vh;
+        min-height:100svh;
     
         background:linear-gradient(
             to bottom,
@@ -254,7 +255,6 @@
       padding-bottom: 50px;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
-      min-height: auto;
     }
     
     .scroll-indicator {
@@ -298,7 +298,6 @@
       padding-bottom: 40px;
       padding-left: 1rem;
       padding-right: 1rem;
-      min-height: auto;
     }
     
     .scroll-indicator {
