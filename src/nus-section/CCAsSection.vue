@@ -163,7 +163,7 @@ next();
 
 <style scoped>
 
-.nusms-page{
+.ccas-page{
 
     min-height:100vh;
     background:#fff;

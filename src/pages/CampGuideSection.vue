@@ -2,13 +2,23 @@
   <section id="camp-guide-landing" class="camp-page train-theme">
 
     <img
-      :src="campHeader"
-      alt="Camp Guide"
-      class="page-title-image"
-    />
+  :src="campGuideTitle"
+  alt="Camp Guide"
+  class="page-title-image camp-guide-desktop"
+/>
+
+<!-- Mobile -->
+<img
+  :src="campGuideTitleMobile"
+  alt="Camp Guide"
+  class="page-title-image camp-guide-mobile"
+/>
 
     <p class="page-subtitle">
       All aboard! Follow the journey through Memoria.
+    </p>
+    <p class="sub-subtitle">
+      Click the carriages to find out more about each day!
     </p>
 
     <div class="track-wrap">
@@ -31,60 +41,28 @@
           class="carriage day1-carriage"
           @click="router.push('/camp-guide#day1')"
         >
-          <div class="carriage-body">
-            <p class="carriage-label">Day</p>
-            <span class="carriage-icon">1</span>
-          </div>
-          <div class="coupler"></div>
-          <div class="wheels">
-            <span class="wheel"></span>
-            <span class="wheel"></span>
-          </div>
+          <img :src="day1Carriage" alt="Day 1" class="carriage-img" />
         </div>
 
         <div
           class="carriage day2-carriage"
           @click="router.push('/camp-guide#day2')"
         >
-          <div class="carriage-body">
-            <p class="carriage-label">Day</p>
-            <span class="carriage-icon">2</span>
-          </div>
-          <div class="coupler"></div>
-          <div class="wheels">
-            <span class="wheel"></span>
-            <span class="wheel"></span>
-          </div>
+          <img :src="day2Carriage" alt="Day 2" class="carriage-img" />
         </div>
 
         <div
           class="carriage day3-carriage"
           @click="router.push('/camp-guide#day3')"
         >
-          <div class="carriage-body">
-            <p class="carriage-label">Day</p>
-            <span class="carriage-icon">3</span>
-          </div>
-          <div class="coupler"></div>
-          <div class="wheels">
-            <span class="wheel"></span>
-            <span class="wheel"></span>
-          </div>
+          <img :src="day3Carriage" alt="Day 3" class="carriage-img" />
         </div>
 
         <div
           class="carriage sponsors-carriage"
           @click="router.push('/camp-guide#our-sponsors')"
         >
-          <div class="carriage-body">
-            <span class="carriage-icon">Our</span>
-            <p class="carriage-label">Sponsors</p>
-          </div>
-          <div class="coupler"></div>
-          <div class="wheels">
-            <span class="wheel"></span>
-            <span class="wheel"></span>
-          </div>
+          <img :src="ourSponsorsCarriage" alt="Our Sponsors" class="carriage-img" />
         </div>
 
       </div>
@@ -109,6 +87,12 @@
 import { useRouter } from "vue-router";
 import campHeader from "../assets/images/c.png";
 import pinkBackground from "../assets/images/pink-background.png"
+import day1Carriage from "../assets/images/day1-carriage.png";
+import day2Carriage from "../assets/images/day2-carriage.png";
+import day3Carriage from "../assets/images/day3-carriage.png";
+import ourSponsorsCarriage from "../assets/images/our-sponsors.png";
+import campGuideTitle from "../assets/images/c.png";      // desktop
+import campGuideTitleMobile from "../assets/images/camp-guide-mobile.png"; // mobile
 
 import Day1Section from "../c-section/Day1Section.vue";
 import Day2Section from "../c-section/Day2Section.vue";
@@ -143,6 +127,10 @@ const router = useRouter();
     object-position: center;
 }
 
+.camp-guide-mobile {
+  display: none;
+}
+
 .page-subtitle{
 
     text-align:center;
@@ -151,17 +139,27 @@ const router = useRouter();
 
     font-size:2.0rem;
 
-    margin-bottom:160px;
+    margin-bottom: 10px;
 
     font-family:"Luckiest Guy", cursive;
 
 }
 
+.sub-subtitle {
+  text-align:center;
+
+  color:#403d4a;
+
+  font-size:1.2rem;
+
+  margin-bottom: 150px;
+
+  font-style: italic;
+}
+
 .track-wrap{
 
     position:relative;
-
-    max-width:1100px;
 
     margin:0 auto;
 
@@ -172,8 +170,6 @@ const router = useRouter();
 .smoke-field{
 
     position:absolute;
-
-    top:-70px;
 
     left:2%;
 
@@ -245,7 +241,7 @@ const router = useRouter();
 
     align-items:flex-end;
 
-    gap:18px;
+    gap:-60px;
 
     padding:0 10px;
 
@@ -265,19 +261,18 @@ const router = useRouter();
 
 /* ===== engine ===== */
 
-.engine {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: flex-end;
-  margin-right: -8px; /* pulls carriage closer to engine */
-}
+.engine {  
+  flex: 0 0 auto;  
+  display: flex;  align-items: 
+  flex-end;  margin-right: -8px; 
+} 
 
-.engine-img {
-  height: 160px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  margin-bottom: 32px; /* lifts image up so wheels align with carriage wheels */
+.engine-img {  
+  height: 160px;  
+  width: auto;  
+  object-fit: contain;  
+  display: block;  
+  margin-bottom: 32px; 
 }
 
 /* ===== carriages ===== */
@@ -290,7 +285,7 @@ const router = useRouter();
   flex: 0 0 auto;
   cursor: pointer;
   transition: transform .25s ease;
-  margin-bottom: 30px; 
+  margin-bottom: 20px; 
 }
 
 .carriage:hover{
@@ -299,118 +294,36 @@ const router = useRouter();
 
 }
 
-.carriage:hover .carriage-body{
+/* ===== image-based carriages (day 1-3, sponsors) ===== */
 
-    box-shadow:0 18px 26px rgba(0,0,0,.3), inset 0 4px 8px rgba(255,255,255,.25);
-
+.carriage-img {
+  height: 190px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 12px 14px rgba(0,0,0,.22));
+  transition: filter .25s ease;
 }
 
-.carriage-body{
-
-    width:130px;
-
-    height:100px;
-
-    border-radius:16px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:6px;
-
-    box-shadow:0 12px 20px rgba(0,0,0,.22), inset 0 4px 8px rgba(255,255,255,.2);
-
-    transition:box-shadow .25s ease;
-
+.carriage:hover .carriage-img {
+  filter: drop-shadow(0 18px 20px rgba(0,0,0,.3));
 }
 
-.day1-carriage .carriage-body{ background:linear-gradient(20deg, #FFD87A, #F0A825); }
-.day2-carriage .carriage-body{ background:linear-gradient(100deg, #8BD3F0, #4599C9); }
-.day3-carriage .carriage-body{ background:linear-gradient(160deg, #FF9A8B, #E8654F); }
-.sponsors-carriage .carriage-body{ background:linear-gradient(200deg, #B29CF0, #7B5FCF); }
-
-.carriage-icon{
-
-    font-size:1.7rem;
-
-    font-family:"Luckiest Guy", cursive;
-
-    color:white;
-
-}
-
-.carriage-label{
-
-    font-family:"Luckiest Guy", cursive;
-
-    color:white;
-
-    font-size:1.5rem;
-
-    text-shadow:0 2px 4px rgba(0,0,0,.25);
-
-}
-
-.coupler{
-
-    width:14px;
-
-    height:6px;
-
-    background:#5E4A30;
-
-    margin-top:-3px;
-
-    z-index:-1;
-
-}
-
-/* ===== wheels, shared ===== */
-
-.wheels{
-
-    display:flex;
-
-    gap:26px;
-
-    margin-top:6px;
-
-}
-
-.wheel{
-
-    width:26px;
-
-    height:26px;
-
-    border-radius:50%;
-
-    background:radial-gradient(circle at 35% 30%, #7A7A7A, #333);
-
-    border:3px solid #222;
-
-    animation:spin 1.4s linear infinite;
-
-}
-
-@keyframes spin{
-
-    from{ transform:rotate(0deg); }
-
-    to{ transform:rotate(360deg); }
-
+.sponsors-carriage .carriage-img {
+  height: 190px;
+  transform: translateY(28px);
+  margin-bottom: 32px; 
 }
 
 /* ===== rail track ===== */
 
 .rail-track {
   height: 16px;
-  margin-top: -35px; 
+  margin-top: -35px;
+  width: 100vw;              /* NEW */
+  position: relative;        /* NEW */
+  left: 50%;                 /* NEW */
+  transform: translateX(-50%); /* NEW */
   background: repeating-linear-gradient(
     to right,
     #8B6F47 0px, #8B6F47 10px,
@@ -419,7 +332,6 @@ const router = useRouter();
   border-top: 4px solid #5E4A30;
   border-bottom: 4px solid #5E4A30;
 }
-
 /* =========================
    Tablet
 ========================= */
@@ -452,13 +364,9 @@ const router = useRouter();
 
 }
 
-.engine-body{ width:120px; height:90px; }
-.engine-window{ width:48px; height:36px; }
-.carriage-body{ width:105px; height:82px; }
-.carriage-icon{ font-size:1.4rem; }
-.carriage-label{ font-size:.78rem; }
-.wheel{ width:20px; height:20px; }
-.wheels{ gap:20px; }
+.engine-img{ height: 100px; }
+.carriage-img{ height:150px; }
+.sponsors-carriage .carriage-img{ height:180px; transform: translateY(22px); }
 
 }
 
@@ -472,18 +380,48 @@ const router = useRouter();
 }
 
 .page-subtitle {
-  font-size: 0.92rem;
-  margin-bottom: 55px;
+  font-size: 2.0rem;
+  margin-bottom: 8px;
+  margin-top: -50px;
 }
 
-.engine-img { height: 88px; }
-.carriage-body{ width:92px; height:72px; border-radius:14px; }
-.carriage-icon{ font-size:1.2rem; }
-.carriage-label{ font-size:.7rem; }
-.wheel{ width:16px; height:16px; border-width:2px; }
-.wheels{ gap:16px; }
-.rail-track{ height:12px; }
+.engine-img { height: 55px; }
+.carriage-img{ height:80px; }
+.sponsors-carriage .carriage-img{ height:80px; transform: translateY(29px); }
+.rail-track{ height:10px; }
 
+}
+.sub-subtitle {
+  font-size: 0.8rem;
+}
+
+.camp-guide-desktop {
+  display: block;
+}
+
+.camp-guide-mobile {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .camp-guide-desktop {
+    display: none;
+  }
+
+  .camp-guide-mobile {
+    display: block;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 17px;
+    margin-top: 80px;
+    margin-bottom: 120px;
+  }
+
+  .sub-subtitle {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
 </style>
