@@ -133,11 +133,11 @@ description:"Youth outreach adhoc fostering holistic development."
 const current = ref(0);
 
 function next(){
-current.value=(current.value+1)%adhocs.length;
+current.value=(current.value+1)%cca.length;
 }
 
 function previous(){
-current.value=(current.value-1+adhocs.length)%adhocs.length;
+current.value=(current.value-1+cca.length)%cca.length;
 }
 
 let startX=0;
@@ -163,7 +163,7 @@ next();
 
 <style scoped>
 
-.nusms-page{
+.ccas-page{
 
     min-height:100vh;
     background:#fff;
@@ -306,7 +306,7 @@ next();
 
 }
 
-.adhoc-image{
+.cca-image{
 
     width:100%;
     max-width:300px;
@@ -323,7 +323,7 @@ next();
 
 }
 
-.adhoc-title{
+.cca-title{
 
     font-family:"Luckiest Guy", cursive;
     color:#402B6D;
@@ -332,7 +332,7 @@ next();
 
 }
 
-.adhoc-description{
+.cca-description{
 
     color:#555;
     line-height:1.6;
@@ -429,7 +429,7 @@ Tablet
 
 }
 
-.adhoc-image{
+.cca-image{
 
     max-width:240px;
 
@@ -482,7 +482,7 @@ Mobile
 
 }
 
-.adhoc-image{
+.cca-image{
 
     max-width:220px;
 
@@ -496,13 +496,13 @@ Mobile
 
 }
 
-.adhoc-title{
+.cca-title{
 
     font-size:1.2rem;
 
 }
 
-.adhoc-description{
+.cca-description{
 
     font-size:.9rem;
     min-height:auto;
