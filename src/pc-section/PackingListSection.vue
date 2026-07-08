@@ -377,7 +377,7 @@
 
 .section-title{
 
-    font-size:2rem;
+    font-size:2.2rem;
 
     margin-bottom:30px;
 

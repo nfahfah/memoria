@@ -33,19 +33,32 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 
-  scrollBehavior(to) {
-    if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: "smooth"
-      };
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
     }
 
-    return {
-      top: 0
-    };
+    if (to.hash) {
+      return new Promise((resolve) => {
+        // wait for the DOM (images, layout, etc.) to settle
+        // before trying to find and scroll to the element
+        setTimeout(() => {
+          const el = document.querySelector(to.hash);
+          if (el) {
+            resolve({
+              el: to.hash,
+              behavior: "smooth",
+              top: 90 // adjust to match your fixed navbar height
+            });
+          } else {
+            resolve({ top: 0 });
+          }
+        }, 400); // tweak delay if 400ms isn't enough on slower loads
+      });
+    }
+
+    return { top: 0 };
   }
 });
-
 
 export default router;

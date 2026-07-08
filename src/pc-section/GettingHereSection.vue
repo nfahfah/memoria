@@ -390,7 +390,7 @@
     
             color:#555;
     
-            font-size:1.1rem;
+            font-size:1.3rem;
     
             line-height:1.8;
     
@@ -579,6 +579,7 @@
         .warning {
             font-size: 0.9rem;
             font-style: italic;
+            color:#402B6D;
         }
     
         @media (max-width: 480px) {

@@ -112,7 +112,7 @@
         max-width: 700px;  
         width: 100%;
         height: auto;
-        height: 180px;      /* The visible cropped height */
+        height: auto;      /* The visible cropped height */
         object-fit: cover;  /* Crops the image to fill the box */
         object-position: center; /* Change what part is kept */
     }
@@ -127,7 +127,7 @@
     
         font-size:1.15rem;
     
-        margin-top:-30px;
+        margin-top:-40px;
     
         margin-bottom:60px;
     
