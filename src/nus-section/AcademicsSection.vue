@@ -154,7 +154,7 @@ const academicsHeader = null;
 
     font-size:3rem;
 
-    margin-top:20px;
+    margin-top:30px;
 
     margin-bottom:10px;
 

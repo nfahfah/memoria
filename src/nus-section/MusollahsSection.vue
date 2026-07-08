@@ -139,12 +139,36 @@ const masjids = [
 const copiedCode = ref(null);
 
 async function copyPostal(code) {
+  const text = `S${code}`;
+
   try {
-    await navigator.clipboard.writeText(`S${code}`);
+    // Modern clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      // Mobile fallback
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+
+      textarea.focus();
+      textarea.select();
+
+      document.execCommand("copy");
+
+      document.body.removeChild(textarea);
+    }
+
     copiedCode.value = code;
+
     setTimeout(() => {
-      if (copiedCode.value === code) copiedCode.value = null;
+      if (copiedCode.value === code) {
+        copiedCode.value = null;
+      }
     }, 1500);
+
   } catch (err) {
     console.error("Copy failed:", err);
   }

@@ -119,8 +119,7 @@ name:"FOC",
 emoji:"🚂",
 image:focImg,
 handle:"@nusms.pbmuks.foc",
-instagram:"https://www.instagram.com/nusms.pbmuks.foc",
-description:"Malay/Muslim freshman orientation camp."
+instagram:"https://www.instagram.com/nusms.pbmuks.foc"
 },
 
 {
@@ -128,8 +127,7 @@ name:"Mekar",
 emoji:"🌱",
 image:mekarImg,
 handle:"@nusms.mekar",
-instagram:"https://www.instagram.com/nusmekar",
-description:"MIJ blah blah."
+instagram:"https://www.instagram.com/nusmekar"
 },
 
 {
@@ -137,8 +135,7 @@ name:"Pentas Budaya",
 emoji:"🎭",
 image:pentasImg,
 handle:"@nuspentasbudaya",
-instagram:"https://www.instagram.com/nuspentasbudaya",
-description:"Sports outreach to instill worthwhile values and empower youth."
+instagram:"https://www.instagram.com/nuspentasbudaya"
 },
 
 {
@@ -146,8 +143,7 @@ name:"Bisikan Pena",
 emoji:"🌟",
 image:bispenImg,
 handle:"@nusbisikanpena",
-instagram:"https://www.instagram.com/nusbisikanpena",
-description:"Youth outreach adhoc fostering holistic development."
+instagram:"https://www.instagram.com/nusbisikanpena"
 },
 
 {
@@ -155,8 +151,7 @@ name:"Merdu",
 emoji:"🎵",
 image:merduImg,
 handle:"@nusms.merdu",
-instagram:"https://www.instagram.com/nusmerdu",
-description:"A safe space for everyone to learn more about Islam."
+instagram:"https://www.instagram.com/nusmerdu"
 },
 
 ];

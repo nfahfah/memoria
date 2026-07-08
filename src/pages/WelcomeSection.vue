@@ -23,7 +23,10 @@
       <div class="message-card">
 
         <p class="message">
-          Welcome onboard Memoria! We are so excited to have you join us as you begin your NUS journey. We hope these three days will be filled with laughter, friendships and unforgettable memories. Enjoy every moment and don't be afraid to step out of your comfort zone. We can't wait to meet all of you! 😊
+          Welcome to Memoria 2025/26!
+We are thrilled to welcome you to this year's FOC! This camp marks the beginning of your university journey.
+Over the next few days, this booklet will be your guide through the journey ahead.
+We look forward to seeing you soon, as we build core memories together, one step at a time.
         </p>
 
         <p class="signature">

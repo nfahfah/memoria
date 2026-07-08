@@ -124,8 +124,7 @@ name:"FOC",
 emoji:"🚂",
 image:focImg,
 handle:"@nusms.pbmuks.foc",
-instagram:"https://www.instagram.com/nusms.pbmuks.foc",
-description:"Malay/Muslim freshman orientation camp."
+instagram:"https://www.instagram.com/nusms.pbmuks.foc"
 },
 
 {
@@ -133,8 +132,7 @@ name:"OCIP",
 emoji:"🌏",
 image:ocipImg,
 handle:"@nusms.ocip",
-instagram:"https://www.instagram.com/nusms.ocip",
-description:"Overseas Community Involvement Project."
+instagram:"https://www.instagram.com/nusms.ocip"
 },
 
 {
@@ -142,8 +140,7 @@ name:"Rihlah",
 emoji:"⚽",
 image:rihlahImg,
 handle:"@nusms.rihlah",
-instagram:"https://www.instagram.com/nusms.rihlah",
-description:"Sports outreach to instill worthwhile values and empower youth."
+instagram:"https://www.instagram.com/nusms.rihlah"
 },
 
 {
@@ -151,8 +148,7 @@ name:"Valour",
 emoji:"🌟",
 image:valourImg,
 handle:"@nusms.valour",
-instagram:"https://www.instagram.com/nusms.valour",
-description:"Youth outreach adhoc fostering holistic development."
+instagram:"https://www.instagram.com/nusms.valour"
 },
 
 {
@@ -160,8 +156,7 @@ name:"IAS",
 emoji:"🕋",
 image:iasImg,
 handle:"@nusms.ias",
-instagram:"https://www.instagram.com/nusms.ias",
-description:"A safe space for everyone to learn more about Islam."
+instagram:"https://www.instagram.com/nusms.ias"
 },
 
 {
@@ -169,8 +164,7 @@ name:"QTIO",
 emoji:"📗",
 image:qtioImg,
 handle:"@nusms.qtio",
-instagram:"https://www.instagram.com/nusms.qtio",
-description:"Building a community that loves the Qur'an."
+instagram:"https://www.instagram.com/nusms.qtio"
 },
 
 {
@@ -178,8 +172,7 @@ name:"beKhayr",
 emoji:"🤝",
 image:bekhayrImg,
 handle:"@nusms.bekhayr",
-instagram:"https://www.instagram.com/nusms.bekhayr",
-description:"Local humanitarian project serving underprivileged communities."
+instagram:"https://www.instagram.com/nusms.bekhayr"
 },
 
 {
@@ -187,8 +180,7 @@ name:"FitDeen",
 emoji:"🏔️",
 image:fitdeenImg,
 handle:"@nusms.fitdeen",
-instagram:"https://www.instagram.com/nusms.fitdeen",
-description:"Bridging spirituality with adventure and exploration."
+instagram:"https://www.instagram.com/nusms.fitdeen"
 },
 
 {
@@ -196,8 +188,7 @@ name:"PBUH",
 emoji:"☪️",
 image:pbuhImg,
 handle:"@nusms.pbuh",
-instagram:"https://www.instagram.com/nusms.pbuh",
-description:"Learning about the life and teachings of Prophet Muhammad ﷺ."
+instagram:"https://www.instagram.com/nusms.pbuh"
 },
 
 {
@@ -205,17 +196,15 @@ name:"Nisaa",
 emoji:"🌸",
 image:nisaaImg,
 handle:"@nusms.nisaa",
-instagram:"https://www.instagram.com/nusms.nisaa",
-description:"For Ladies, By Ladies."
+instagram:"https://www.instagram.com/nusms.nisaa"
 },
 
 {
 name:"Musollah",
 emoji:"🕌",
 image:musollahImg,
-handle:"@nusms.musollah",
-instagram:"https://www.instagram.com/nusms.musollah",
-description:"Maintaining and caring for prayer spaces across NUS."
+handle:"@nusmusollahs",
+instagram:"https://www.instagram.com/nusmusollahs"
 }
 
 ];
@@ -280,6 +269,7 @@ next();
     font-family:"Luckiest Guy", cursive;
     color:#402B6D;
     font-size:3rem;
+    margin-top: 5px;
     margin-bottom:10px;
 
 }

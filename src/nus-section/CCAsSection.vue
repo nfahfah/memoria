@@ -93,39 +93,35 @@ import mssImg from "../assets/images/ccas/mss.png";
 const cca = [
 
 {
-name:"Dikir Barat",
-emoji:"🚂",
+name:"NUS Dikir Barat",
+emoji:"🎶",
 image:dikirImg,
 handle:"@nusdikir",
-instagram:"https://www.instagram.com/nusdikir",
-description:"Dikir Barat."
+instagram:"https://www.instagram.com/nusdikir"
 },
 
 {
-name:"Silat",
-emoji:"🌏",
+name:"NUSSilat",
+emoji:"🦁",
 image:silatImg,
-handle:"@nussilat",
-instagram:"https://www.instagram.com/nussilat",
-description:"Silat."
+handle:"@nus.silat",
+instagram:"https://www.instagram.com/nus.silat"
 },
 
 {
-name:"Ilsa Tari",
-emoji:"⚽",
+name:"NUSIlsa Tari",
+emoji:"💃🏻",
 image:ilsaImg,
 handle:"@nusilsatari",
-instagram:"https://www.instagram.com/nusilsatari",
-description:"Sports outreach to instill worthwhile values and empower youth."
+instagram:"https://www.instagram.com/nusilsatari"
 },
 
 {
-name:"MSS",
-emoji:"🌟",
+name:"NUS Malay Studies Society",
+emoji:"📖",
 image:mssImg,
-handle:"@nusmmss",
-instagram:"https://www.instagram.com/nusmss",
-description:"Youth outreach adhoc fostering holistic development."
+handle:"@nusmalaystudiessociety",
+instagram:"https://www.instagram.com/nusmalaystudiessociety"
 },
 
 ];
