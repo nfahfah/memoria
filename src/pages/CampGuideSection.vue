@@ -29,6 +29,8 @@
         <span class="smoke s3"></span>
       </div>
 
+      <div class="track-inner">
+
       <div class="train-row">
 
         <!-- engine, purely decorative -->
@@ -69,6 +71,7 @@
 
       <div class="rail-track"></div>
 
+    </div>
     </div>
 
   </section>
@@ -142,6 +145,12 @@ const router = useRouter();
     margin-bottom: 10px;
 
     font-family:"Luckiest Guy", cursive;
+
+}
+
+.track-inner{
+
+position:relative;
 
 }
 
@@ -384,12 +393,6 @@ const router = useRouter();
   margin-bottom: 8px;
   margin-top: -50px;
 }
-
-.engine-img { height: 55px; }
-.carriage-img{ height:80px; }
-.sponsors-carriage .carriage-img{ height:80px; transform: translateY(29px); }
-.rail-track{ height:10px; }
-
 }
 .sub-subtitle {
   font-size: 0.8rem;
@@ -422,6 +425,29 @@ const router = useRouter();
     margin-left: 10px;
     margin-right: 10px;
   }
+  .track-inner{
+
+width:max-content;
+
+}
+
+.rail-track{
+
+width:100%;
+
+position:static;
+
+left:auto;
+
+transform:none;
+
+}
+
+.engine-img { height: 55px; }
+.carriage-img{ height:80px; }
+.sponsors-carriage .carriage-img{ height:80px; transform: translateY(29px); }
+.rail-track{ height:10px; }
+  
 }
 
 </style>

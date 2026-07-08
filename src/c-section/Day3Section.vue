@@ -598,61 +598,180 @@ onUnmounted(() => {
 ========================= */
 @media (max-width: 768px) {
 
-  .track-svg{
-      display:none;
-  }
+.track-svg{
+    display:none;
+}
 
-  .timeline::before{
-      content:"";
-      position:absolute;
-      left:14px;
-      top:0;
-      bottom:0;
-      width:5px;
-      background:#F2CF72;
-      border-radius:999px;
-      z-index:0;
-  }
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:14px;
+    top:0;
+    bottom:0;
+    width:5px;
+    background:#e4c5a0;
+    border-radius:999px;
+    z-index:0;
+}
 
-  .timeline-item{
-      width:100%;
-      margin-left:44px !important;
-      margin-right:0 !important;
-  }
+.timeline-item{
+  width:calc(100% - 44px);
+  margin-left:44px !important;
+  margin-right:0 !important;
+}
 
-  .item-left .dot,
-  .item-right .dot{
-      left:-38px;
-      right:auto;
-  }
+.item-left .dot,
+.item-right .dot{
+    left:-38px;
+    right:auto;
+}
 
-  .card::before,
-  .card::after{
-      display:none;
-  }
+.card::before,
+.card::after{
+    display:none;
+}
 
-  .item-left .card,
-  .item-right .card{
-      padding-left:28px;
-      padding-right:28px;
-  }
+.item-left .card,
+.item-right .card{
+    padding-left:28px;
+    padding-right:28px;
+}
 
-  .back-to-top .arrow-icon{
-      font-size:1.4rem;
-  }
-  .back-to-top .back-to-top-label{
-      font-size:.85rem;
-  }
+.back-to-top .arrow-icon{
+    font-size:1.4rem;
+}
+.back-to-top .back-to-top-label{
+    font-size:.85rem;
+}
 
-  .item-left .pin-icon{
-    --pin-tx: -45px;   /* centers it in the card-side portion of the gap */
+.item-left .pin-icon{
+  --pin-tx: -45px;
 }
 
 .item-right .pin-icon{
-    --pin-tx: -45px;
+  --pin-tx: -45px;
 }
 
+.journey-end{
+    margin:50px auto 0;
+    padding:28px 20px;
+    border-radius:20px;
+}
 
+.journey-end h2{
+    font-size:1.7rem;
+    margin-bottom:14px;
+}
+
+.journey-end p{
+    font-size:.9rem;
+    line-height:1.7;
+}
+
+@media (max-width: 480px) {
+
+.day3-section{
+  padding:60px 6%;
+}
+
+.hero{
+  margin-bottom:36px;
+}
+
+.day-number{
+  font-size:.75rem;
+  letter-spacing:2px;
+}
+
+.hero h1{
+  font-size:1.7rem;
+  margin-bottom:10px;
+  line-height:1.25;
+}
+
+.subtitle{
+  font-size:.85rem;
+}
+
+.timeline-item{
+  width:calc(100% - 36px);
+  margin-left:36px !important;
+  margin-bottom:28px;
+}
+
+.timeline::before{
+  left:10px;
+  width:4px;
+}
+
+.dot{
+  width:1px;
+  height:1px;
+}
+
+.item-left .dot,
+.item-right .dot{
+  left:-30px;
+}
+
+.pin-icon{
+  width:36px;
+}
+
+.item-left .pin-icon,
+.item-right .pin-icon{
+  --pin-tx: -36px;
+}
+
+.card{
+  padding:14px;
+  border-radius:12px;
+}
+
+.item-left .card,
+.item-right .card{
+  padding-left:14px;
+  padding-right:14px;
+}
+
+.time{
+  padding:3px 9px;
+  font-size:.7rem;
+  margin-bottom:8px;
+}
+
+.card h2{
+  font-size:1.02rem;
+  margin-bottom:5px;
+}
+
+.venue{
+  font-size:.78rem;
+  margin-bottom:6px;
+}
+
+.description{
+  font-size:.8rem;
+  line-height:1.45;
+}
+
+.journey-end{
+  padding:22px 16px;
+  margin-top:36px;
+  border-radius:16px;
+}
+
+.journey-end h2{
+  font-size:1.35rem;
+  margin-bottom:10px;
+}
+
+.journey-end p{
+  font-size:.82rem;
+  line-height:1.6;
+}
+
+}
 }
 
 </style>

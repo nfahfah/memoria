@@ -39,7 +39,7 @@
     
                 <h4 class="venue-label">Reporting Venue: SFAH Auditorium</h4>
 
-                <h4 class="venue-label">Reporting Time: </h4>
+                <h4 class="venue-label">Reporting Time: 8.30 AM</h4>
     
                 <div class="address-row">
     
@@ -93,14 +93,14 @@
     
             <div class="reporting-venue">
     
-                <h4 class="venue-label">Reporting Venue: Techno Edge Canteen</h4>
+                <h4 class="venue-label">Reporting Time & Venue (Overnight): 8.00 AM @ PGP</h4>
 
-                <h4 class="venue-label">Reporting Time: </h4>
+                <h4 class="venue-label">Reporting Time & Venue (Non-Overnight): 8.45 AM @ TechnoEdge Canteen</h4>
     
                 <div class="address-row">
     
                     <p class="address-text">
-                        2 Engineering Drive 4, Singapore 117584
+                        TechnoEdge Canteen: 2 Engineering Drive 4, Singapore 117584
                     </p>
     
                     <button
@@ -117,7 +117,7 @@
             <div class="transport">
                 <h4>🚇 Kent Ridge MRT Station (Circle Line)</h4>
                 <p>
-                    Transfer to the <strong>A1 / K Internal Shuttle Bus (ISB)</strong> outside Exit A / NUH and alight at <strong>CLB</strong>. Cross the road and walk through the tree-lined pathway and down the stairs to Techno Edge.
+                    Transfer to the <strong>D2 Internal Shuttle Bus (ISB)</strong> outside Exit A / NUH and alight at <strong>UTown</strong>.
                 </p>
             </div>
     
@@ -143,23 +143,66 @@
             </div>
         </div>
         <!-- UTown -->
-        <div class="getting-card">
-    
-            <h3 class="day-title">
-                Day 3
-            </h3>
-    
-            <div class="transport">
-                <h4>🏠 Overnight</h4>
+
+<div class="getting-card">
+
+<h3 class="day-title">
+    Day 3
+</h3>
+
+<div class="reporting-venue">
+
+    <h4 class="venue-label">Reporting Time & Venue (Overnight): 8.30 AM @ PGP</h4>
+
+    <h4 class="venue-label">Reporting Time & Venue (Non-Overnight): 9.00 AM @ UTown</h4>
+    <p class="warning">exact location will be specified by your OGLs</p>
+
+    <div class="address-row">
+
+        <p class="address-text">
+            UTown: 2 College Ave W, Level 1 Stephen Riady Centre, Singapore 138607
+        </p>
+
+        <button
+            class="copy-btn"
+            @click="copyAddress('138607', 'day3')"
+        >
+            {{ copiedKey === 'day3' ? "Copied!" : "Copy Postal Code" }}
+        </button>
+
+    </div>
+
+</div>
+
+<div class="transport">
+                <h4>🚇 Kent Ridge MRT Station (Circle Line)</h4>
                 <p>
-                    After check-out, proceed to your respective breakfast location with your OGLs.
-                </p><br><br>
-                <h4>🚇 Non-Overnight</h4>
-                <p>
-                    For those coming from home, do make your way to the respective breakfast location at the reporting time specified by your OGLs.
+                    Transfer to the <strong>A1 / K Internal Shuttle Bus (ISB)</strong> outside Exit A / NUH and alight at <strong>CLB</strong>. Cross the road and walk through the tree-lined pathway and down the stairs to Techno Edge.
                 </p>
             </div>
-        </div>
+    
+            <div class="transport">
+                <h4>🚇 Clementi MRT (Green Line)</h4>
+                <p>
+                    Take bus <strong>96</strong> from Clementi Interchange and alight at <strong>Yale-NUS College</strong>.
+                </p>
+            </div>
+
+            <div class="transport">
+                <h4>🏠 Prince George's Park Residences</h4>
+
+                <p class="option-label">Option 1: Bus D2</p>
+                <p>
+                    Take bus <strong>D2 (ISB)</strong> from Opposite PGP and alight at <strong>UTown</strong>.
+                </p>
+
+                <p class="option-label">Option 2: Bus R2</p>
+                <p>
+                    Take bus <strong>R2 (ISB)</strong> from Opposite PGP and alight at <strong>UTown</strong>.
+                </p>
+            </div>
+
+</div>
 
     
     </div>
@@ -531,6 +574,11 @@
         
             background:#573A99;
         
+        }
+
+        .warning {
+            font-size: 0.9rem;
+            font-style: italic;
         }
     
         @media (max-width: 480px) {

@@ -574,62 +574,150 @@ function scrollToTop() {
      the winding two-column layout gets too tight on narrow screens
   ========================= */
   @media (max-width: 768px) {
-  
-    .track-svg{
-        display:none;
-    }
-  
-    .timeline::before{
-        content:"";
-        position:absolute;
-        left:14px;
-        top:0;
-        bottom:0;
-        width:5px;
-        background:#F0B8D2;
-        border-radius:999px;
-        z-index:0;
-    }
-  
-    .timeline-item{
-        width:100%;
-        margin-left:44px !important;
-        margin-right:0 !important;
-    }
-  
-    .item-left .dot,
-    .item-right .dot{
-        left:-38px;
-        right:auto;
-    }
-  
-    .card::before,
-    .card::after{
-        display:none;
-    }
-  
-    .item-left .card,
-    .item-right .card{
-        padding-left:28px;
-        padding-right:28px;
-    }
-  
-    .back-to-top .arrow-icon{
-        font-size:1.4rem;
-    }
-    .back-to-top .back-to-top-label{
-        font-size:.85rem;
-    }
 
-    .item-left .pin-icon{
-    --pin-tx: -45px;   /* centers it in the card-side portion of the gap */
+.track-svg{
+    display:none;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:14px;
+    top:0;
+    bottom:0;
+    width:5px;
+    background:#e3afce;
+    border-radius:999px;
+    z-index:0;
+}
+
+.timeline-item{
+  width:calc(100% - 44px);
+  margin-left:44px !important;
+  margin-right:0 !important;
+}
+
+.item-left .dot,
+.item-right .dot{
+    left:-38px;
+    right:auto;
+}
+
+.card::before,
+.card::after{
+    display:none;
+}
+
+.item-left .card,
+.item-right .card{
+    padding-left:28px;
+    padding-right:28px;
+}
+
+.back-to-top .arrow-icon{
+    font-size:1.4rem;
+}
+.back-to-top .back-to-top-label{
+    font-size:.85rem;
+}
+
+
+.item-left .pin-icon{
+  --pin-tx: -45px;   /* centers it in the card-side portion of the gap */
 }
 
 .item-right .pin-icon{
-    --pin-tx: -45px;
+  --pin-tx: -45px;
 }
 
-  
-  }
+@media (max-width: 480px) {
+
+.day1-section{
+  padding:60px 6%;
+}
+
+.hero{
+  margin-bottom:36px;
+}
+
+.day-number{
+  font-size:.75rem;
+  letter-spacing:2px;
+}
+
+.hero h1{
+  font-size:1.7rem;
+  margin-bottom:10px;
+  line-height:1.25;
+}
+
+.subtitle{
+  font-size:.85rem;
+}
+
+.timeline-item{
+  width:calc(100% - 36px);
+  margin-left:36px !important;
+  margin-bottom:28px;
+}
+
+.timeline::before{
+  left:10px;
+  width:4px;
+}
+
+.dot{
+  width:1px;
+  height:1px;
+}
+
+.item-left .dot,
+.item-right .dot{
+  left:-30px;
+}
+
+.pin-icon{
+  width:36px;
+}
+
+.item-left .pin-icon,
+.item-right .pin-icon{
+  --pin-tx: -36px;
+}
+
+.card{
+  padding:14px;
+  border-radius:12px;
+}
+
+.item-left .card,
+.item-right .card{
+  padding-left:14px;
+  padding-right:px;
+}
+
+.time{
+  padding:3px 9px;
+  font-size:.7rem;
+  margin-bottom:8px;
+}
+
+.card h2{
+  font-size:1.02rem;
+  margin-bottom:5px;
+}
+
+.venue{
+  font-size:.78rem;
+  margin-bottom:6px;
+}
+
+.description{
+  font-size:.8rem;
+  line-height:1.45;
+}
+
+}
+}
   
   </style>
