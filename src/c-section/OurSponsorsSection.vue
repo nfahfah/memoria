@@ -120,6 +120,8 @@
     import chocoalbabLogo from "../assets/images/sponsors/chocoalbab.jpg";
     import boulderPlanetLogo from "../assets/images/sponsors/boulder-planet.png";
     import fopticsVoucher from "../assets/images/sponsors/fopticsvoucher.png";
+    import milesLogo from "../assets/images/sponsors/miles.jpeg";
+    import ricoLogo from "../assets/images/sponsors/rico-logo.png";
     
     const featured = reactive([
         {
@@ -200,6 +202,20 @@
         tier:"Sponsor",
         logo:chocoalbabLogo,
         description:"Choco Albab Singapore distributes high-quality chocolate products are are committed to supporting meaningful initiatives and collaborations within the academic and student communities.",
+        open:false
+    },
+    {
+        name:"13 Miles",
+        tier:"Sponsor",
+        logo:milesLogo,
+        description:"13 Miles is a halal restaurant in Kampong Glam, Singapore, specializing in seafood shellout, Western cuisine, dim sum, and catering. We create memorable dining experiences with quality food, warm hospitality, and exceptional value.",
+        open:false
+    },
+    {
+        name:"Rico Catering",
+        tier:"Sponsor",
+        logo:ricoLogo,
+        description:"Rico Catering is delighted to support this meaningful event with our delicious Halal-certified cuisine. We hope our food brings everyone together and makes this special occasion even more memorable. Enjoy!",
         open:false
     }
     
