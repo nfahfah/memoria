@@ -91,7 +91,7 @@
             title: 'Overnight Items',
             showHeader: true,
             items: [
-                { name: 'Dark Blue Dri Fit Shirt', qty: '1-2' },
+                { name: 'Black Dri Fit Shirt', qty: '1-2' },
                 { name: 'Camp Shirt (Will be given on Day 1)', qty: '1' },
                 { name: 'Extra Black Dri Fit Shirt (Optional)', qty: '1' },
                 { name: 'Long pants', qty: '2-3' },
